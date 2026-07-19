@@ -20,7 +20,7 @@ export default function AboutPage() {
       </PageHeader>
 
       <section className="light">
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-16 pt-3 sm:px-8 sm:pb-20 sm:pt-4 lg:grid-cols-[1fr_2fr]">
+        <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0 lg:grid-cols-[1fr_2fr]">
           <h2 className="justify-self-start"><span className="chip text-2xl">Mission</span></h2>
           <div className="space-y-5 leading-relaxed text-muted">
             <p>
@@ -47,7 +47,7 @@ export default function AboutPage() {
       </section>
 
       <section>
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-16 pt-3 sm:px-8 sm:pb-20 sm:pt-4 lg:grid-cols-[1fr_2fr]">
+        <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0 lg:grid-cols-[1fr_2fr]">
           <div>
             <h2 className="justify-self-start"><span className="chip text-2xl">Why now</span></h2>
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -84,7 +84,7 @@ export default function AboutPage() {
       </section>
 
       <section id="governance" className="light scroll-mt-20">
-        <div className="mx-auto max-w-6xl px-5 pb-16 pt-3 sm:px-8 sm:pb-20 sm:pt-4">
+        <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
           <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
             <div>
               <h2 className="justify-self-start"><span className="chip text-2xl">Governance &amp; ethics</span></h2>

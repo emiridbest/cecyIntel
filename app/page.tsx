@@ -87,7 +87,7 @@ export default function HomePage() {
 
       {/* The data gap */}
       <section className="light">
-        <div className="mx-auto max-w-6xl px-5 pb-16 pt-3 sm:px-8 sm:pb-20 sm:pt-4">
+        <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
           <h2 className="chip text-2xl sm:text-3xl">The data gap</h2>
           <div className="mt-10 grid items-center gap-10 lg:grid-cols-[1.4fr_1fr]">
             <div className="space-y-5 leading-relaxed text-muted">
@@ -124,7 +124,7 @@ export default function HomePage() {
 
       {/* The gap, in figures - numbers-only band on black */}
       <section className="bg-[#0a0a0a] text-white">
-        <div className="mx-auto max-w-6xl px-5 pb-16 pt-3 sm:px-8 sm:pb-20 sm:pt-4">
+        <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
           <h2 className="chip text-2xl text-white sm:text-3xl">Why African data matters</h2>
           <dl className="mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-3">
             {[
@@ -161,7 +161,7 @@ export default function HomePage() {
 
       {/* Vision and mission */}
       <section className="bg-[#0a0a0a] text-white">
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-16 pt-3 sm:px-8 sm:pb-20 sm:pt-4 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0 lg:grid-cols-2">
           <div>
             <h2 className="chip text-2xl">Our vision</h2>
             <p className="mt-6 text-xl leading-relaxed text-white">
@@ -183,7 +183,7 @@ export default function HomePage() {
 
       {/* Programme targets */}
       <section className="light">
-        <div className="mx-auto max-w-6xl px-5 pb-16 pt-3 sm:px-8 sm:pb-20 sm:pt-4">
+        <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
           <h2 className="chip text-2xl sm:text-3xl">Where we are headed</h2>
           <div className="mt-12">
             <Stats />
@@ -193,7 +193,7 @@ export default function HomePage() {
 
       {/* Our approach */}
       <section>
-        <div className="mx-auto max-w-6xl px-5 pb-16 pt-3 sm:px-8 sm:pb-20 sm:pt-4">
+        <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
           <h2 className="chip text-2xl sm:text-3xl">What we build</h2>
           <div className="mt-6 grid items-center gap-10 lg:grid-cols-[3fr_2fr]">
             <p className="max-w-2xl leading-relaxed text-muted">
@@ -264,7 +264,7 @@ export default function HomePage() {
 
       {/* Who we serve */}
       <section className="light">
-        <div className="mx-auto max-w-6xl px-5 pb-16 pt-3 sm:px-8 sm:pb-20 sm:pt-4">
+        <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
           <h2 className="chip text-2xl sm:text-3xl">Who we serve</h2>
           <div className="mt-12 space-y-6">
             {AUDIENCES.map((a, i) => (
@@ -284,7 +284,7 @@ export default function HomePage() {
 
       {/* Compliance frame */}
       <section>
-        <div className="mx-auto max-w-6xl px-5 pb-16 pt-3 sm:px-8 sm:pb-20 sm:pt-4">
+        <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
           <h2 className="chip text-2xl sm:text-3xl">Compliance</h2>
           <p className="mt-6 max-w-2xl leading-relaxed text-muted">
             We operate under the Nigeria Data Protection Act 2023 and align
