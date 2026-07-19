@@ -179,15 +179,13 @@ export default function HomePage() {
             </p>
           </div>
           <div data-reveal="right" className="mx-auto w-full max-w-md">
-            {/* The rotating 3D globe. Muted + playsInline for mobile autoplay. */}
-            <video
-              src="/globeVid.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              aria-label="A rotating globe showing Africa"
-              className="aspect-square w-full rounded-full object-cover"
+            {/* Gold 3D globe on black - blends into the section background. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/3DGlobe.png"
+              alt="A gold wireframe globe centred on Africa"
+              loading="lazy"
+              className="w-full"
             />
           </div>
         </div>
