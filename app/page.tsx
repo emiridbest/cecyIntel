@@ -1,4 +1,5 @@
 ﻿import Link from "next/link";
+import Stats from "@/components/Stats";
 
 const AUDIENCES = [
   {
@@ -187,6 +188,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Programme targets */}
+      <section className="light">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <h2 className="chip text-2xl sm:text-3xl">Where we are headed</h2>
+          <div className="mt-12">
+            <Stats />
+          </div>
+        </div>
+      </section>
+
       {/* Our approach */}
       <section>
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
@@ -277,6 +288,30 @@ export default function HomePage() {
                   <h3 className="text-xl">{a.name}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted">{a.text}</p>
                 </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Compliance frame */}
+      <section>
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <h2 className="chip text-2xl sm:text-3xl">Compliance</h2>
+          <p className="mt-6 max-w-2xl leading-relaxed text-muted">
+            We operate under the Nigeria Data Protection Act 2023 and align
+            our safeguards with international health data standards.
+          </p>
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              ["NDPA 2023", "Nigeria Data Protection Act: lawful bases, data processing agreements, and a named data protection officer."],
+              ["NDPC", "Registered posture under the Nigeria Data Protection Commission's implementing directions."],
+              ["GDPR-aligned", "De-identification, purpose limitation, and data subject rights modelled on the EU General Data Protection Regulation."],
+              ["HIPAA-aligned", "Technical and administrative safeguards modelled on the US HIPAA Security Rule for health information."],
+            ].map(([name, text]) => (
+              <li key={name} className="border-t-2 border-gold bg-ink-raised p-6">
+                <h3 className="text-lg">{name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{text}</p>
               </li>
             ))}
           </ul>

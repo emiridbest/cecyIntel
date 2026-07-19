@@ -12,25 +12,26 @@ const NAV = [
   { href: "/contact", label: "Contact" },
 ];
 
+/*
+ * Black header bar so the full logo (globe plus wordmark, black ground)
+ * sits seamlessly. The wordmark lives in the image, so no text logo here.
+ */
 export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-[#d4a03c] bg-ink/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b-2 border-[#d4a03c] bg-[#0a0a0a] text-white">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-        <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+        <Link href="/" onClick={() => setOpen(false)}>
           <Image
-            src="/logo.jpg"
-            alt="Cecy Intelligence - gold globe logo"
-            width={40}
-            height={40}
-            className="rounded-full"
+            src="/logoWide.png"
+            alt="Cecy Intelligence"
+            width={2960}
+            height={1150}
             priority
+            className="h-12 w-auto"
           />
-          <span className="font-serif text-lg tracking-wide">
-            Cecy <span className="text-gold">Intelligence</span>
-          </span>
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-8 sm:flex">
@@ -39,8 +40,8 @@ export default function Header() {
               key={item.href}
               href={item.href}
               aria-current={pathname === item.href ? "page" : undefined}
-              className={`text-sm transition-colors hover:text-gold-light ${
-                pathname === item.href ? "text-gold" : "text-muted"
+              className={`text-sm transition-colors hover:text-[#f5d68a] ${
+                pathname === item.href ? "text-[#d4a03c]" : "text-[#d9d9d9]"
               }`}
             >
               {item.label}
@@ -67,7 +68,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <nav id="mobile-nav" aria-label="Main" className="border-t border-line sm:hidden">
+        <nav id="mobile-nav" aria-label="Main" className="border-t border-white/15 sm:hidden">
           {NAV.map((item) => (
             <Link
               key={item.href}
@@ -75,7 +76,7 @@ export default function Header() {
               onClick={() => setOpen(false)}
               aria-current={pathname === item.href ? "page" : undefined}
               className={`block px-5 py-4 text-sm ${
-                pathname === item.href ? "text-gold" : "text-muted"
+                pathname === item.href ? "text-[#d4a03c]" : "text-[#d9d9d9]"
               }`}
             >
               {item.label}
