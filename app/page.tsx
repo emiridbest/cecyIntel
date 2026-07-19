@@ -57,7 +57,7 @@ export default function HomePage() {
             The problem
           </p>
           <h2 data-reveal className="chip text-2xl sm:text-3xl">The data gap</h2>
-          <div className="mt-10 grid gap-10 lg:grid-cols-2">
+          <div className="mt-10 grid items-center gap-10 lg:grid-cols-[1.4fr_1fr]">
             <div data-reveal="left" className="space-y-5 leading-relaxed text-muted">
               <p>
                 Every month, tens of thousands of Nigerian health facilities
@@ -79,63 +79,62 @@ export default function HomePage() {
                 the system pays for that gap, over and over.
               </p>
             </div>
-            <div data-reveal="right" className="border-l border-gold-deep pl-6">
-              <h3 className="text-xs uppercase tracking-widest text-gold-deep">The hard numbers</h3>
-              <ul className="mt-5 space-y-5 text-sm leading-relaxed text-muted">
-                <li>
-                  <strong className="text-body">A quarter of the burden, a sixth of the people.</strong>{" "}
-                  Africa carries about 25% of the global disease burden while
-                  being home to just over one-sixth of the world&rsquo;s population
-                  (WHO; UN Office of the Special Adviser on Africa).
-                </li>
-                <li>
-                  <strong className="text-body">1.1% of clinical trials.</strong>{" "}
-                  Of 76,331 clinical trials initiated worldwide in 2023, only
-                  845 were hosted on the African continent. The evidence used
-                  to treat African patients is overwhelmingly generated
-                  elsewhere.
-                </li>
-                <li>
-                  <strong className="text-body">Fragmented by design.</strong>{" "}
-                  WHO&rsquo;s framework for digital health in the African Region
-                  (2021) identifies fragmented, often paper-based,
-                  non-interoperable information systems as a persistent
-                  constraint on decision-making across the region.
-                </li>
-                <li>
-                  <strong className="text-body">Collected twice, connected never.</strong>{" "}
-                  Peer-reviewed reviews document parallel reporting channels in
-                  African health systems: the same data captured repeatedly by
-                  hospitals, disease programmes, and agencies whose databases
-                  cannot talk to each other.
-                </li>
-              </ul>
-              <p className="mt-6 text-xs leading-relaxed text-muted">
-                Sources:{" "}
-                <a
-                  href="https://iris.who.int/handle/10665/345393"
-                  className="text-gold underline underline-offset-2 hover:text-gold-light"
-                >
-                  WHO AFRO digital health framework (2021)
-                </a>
-                {" · "}
-                <a
-                  href="https://africacdc.org/download/african-union-health-information-exchange-guidelines-and-standards/"
-                  className="text-gold underline underline-offset-2 hover:text-gold-light"
-                >
-                  Africa CDC Health Information Exchange Guidelines
-                </a>
-              </p>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              data-reveal="right"
+              src="/nurseForm.png"
+              alt="A nurse completing a paper reporting form on a clipboard"
+              loading="lazy"
+              className="max-h-96 w-full rounded-2xl object-cover"
+            />
           </div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            data-reveal="scale"
-            src="/nurseForm.png"
-            alt="A nurse completing a paper reporting form on a clipboard"
-            loading="lazy"
-            className="mt-12 max-h-80 w-full object-cover rounded-2xl"
-          />
+        </div>
+      </section>
+
+      {/* The gap, in figures - numbers-only band on black */}
+      <section className="bg-[#0a0a0a] text-white">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <p data-reveal className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">
+            The gap, in figures
+          </p>
+          <h2 data-reveal className="chip text-2xl text-white sm:text-3xl">
+            Why African data matters
+          </h2>
+          <dl className="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-3">
+            {[
+              ["25%", "of the global disease burden falls on Africa"],
+              ["1 in 6", "of the world's people live on the continent"],
+              ["1.1%", "of 2023 clinical trials were hosted in Africa (845 of 76,331)"],
+            ].map(([num, label], i) => (
+              <div
+                key={label}
+                data-reveal
+                style={{ "--d": `${i * 120}ms` } as CSSProperties}
+                className="border-t-2 border-gold pt-5"
+              >
+                <dt className="text-5xl font-extrabold tracking-tight text-[#f5d68a] sm:text-6xl">
+                  {num}
+                </dt>
+                <dd className="mt-4 max-w-xs leading-snug text-[#d9d9d9]">{label}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-12 text-xs leading-relaxed text-[#a8a8a8]">
+            Sources:{" "}
+            <a
+              href="https://iris.who.int/handle/10665/345393"
+              className="text-[#f5d68a] underline underline-offset-2 hover:text-white"
+            >
+              WHO AFRO digital health framework (2021)
+            </a>
+            {" · "}
+            <a
+              href="https://www.who.int/data"
+              className="text-[#f5d68a] underline underline-offset-2 hover:text-white"
+            >
+              WHO &amp; UN Office of the Special Adviser on Africa
+            </a>
+          </p>
         </div>
       </section>
 
