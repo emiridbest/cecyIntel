@@ -1,6 +1,8 @@
 import type { CSSProperties } from "react";
 import Link from "next/link";
 import Stats from "@/components/Stats";
+import Hero from "@/components/Hero";
+import MotionCard from "@/components/MotionCard";
 
 const AUDIENCES = [
   {
@@ -38,50 +40,8 @@ const AUDIENCES = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero - full-bleed globe video background with overlaid text */}
-      <section className="relative overflow-hidden border-b border-gold-deep bg-[#0a0a0a]">
-        {/* Muted + playsInline are required for mobile autoplay policies. */}
-        <video
-          src="/globeVid.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          aria-hidden="true"
-          className="hero-pan absolute inset-0 h-full w-full object-cover"
-        />
-        {/* Scrim so the overlaid text keeps AA contrast on the video */}
-        <div aria-hidden="true" className="absolute inset-0 bg-black/60" />
-
-        <div className="relative mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-36">
-          <p className="anim-rise mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-[#f5d68a]">
-            Health-data infrastructure
-          </p>
-          <h1 className="anim-rise-delayed max-w-3xl text-3xl font-extrabold leading-[1.15] text-white sm:text-5xl">
-            Connecting the health data Africa already produces
-          </h1>
-          <p className="anim-rise-delayed-2 mt-8 max-w-2xl text-lg leading-relaxed text-white">
-            Nigeria already produces the health data it needs. Cecy
-            Intelligence aggregates, cleans, and connects facility reporting,
-            health surveys, insurance claims, and disease registries into one
-            governed, tiered access analytics layer.
-          </p>
-          <div className="anim-rise-delayed-2 mt-10 flex flex-wrap gap-4">
-            <Link
-              href="/survey"
-              className="rounded-full bg-[#d4a03c] px-6 py-3 text-sm font-medium text-[#0a0a0a] transition-colors hover:bg-[#f5d68a]"
-            >
-              Take the data-access survey
-            </Link>
-            <Link
-              href="/approach"
-              className="rounded-full border border-white/60 px-6 py-3 text-sm text-white transition-colors hover:border-[#f5d68a] hover:text-[#f5d68a]"
-            >
-              Read our approach
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Hero - Helium-style light, text-forward, Framer Motion (see Hero.tsx) */}
+      <Hero />
 
       {/* The data gap */}
       <section className="light">
@@ -249,10 +209,9 @@ export default function HomePage() {
                 icon: <path d="M12 4 4 8l8 4 8-4-8-4ZM4 12l8 4 8-4M4 16l8 4 8-4" />,
               },
             ].map((step, i) => (
-              <div
+              <MotionCard
                 key={step.title}
-                data-reveal
-                style={{ "--d": `${i * 110}ms` } as CSSProperties}
+                delay={i * 0.11}
                 className="rounded-2xl bg-ink-raised p-8 shadow-sm"
               >
                 <span
@@ -274,7 +233,7 @@ export default function HomePage() {
                 </span>
                 <h3 className="mt-5 text-2xl">{step.title}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-muted">{step.text}</p>
-              </div>
+              </MotionCard>
             ))}
           </div>
           <p className="mt-8 text-sm text-muted">
@@ -296,10 +255,10 @@ export default function HomePage() {
           <h2 data-reveal className="chip text-2xl sm:text-3xl">Who we serve</h2>
           <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {AUDIENCES.map((a, i) => (
-              <li
+              <MotionCard
                 key={a.name}
-                data-reveal
-                style={{ "--d": `${(i % 3) * 110}ms` } as CSSProperties}
+                as="li"
+                delay={(i % 3) * 0.11}
                 className="overflow-hidden rounded-2xl bg-ink-raised shadow-sm"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -313,7 +272,7 @@ export default function HomePage() {
                   <h3 className="text-xl">{a.name}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted">{a.text}</p>
                 </div>
-              </li>
+              </MotionCard>
             ))}
           </ul>
         </div>
@@ -337,15 +296,15 @@ export default function HomePage() {
               ["GDPR-aligned", "De-identification, purpose limitation, and data subject rights modelled on the EU General Data Protection Regulation."],
               ["HIPAA-aligned", "Technical and administrative safeguards modelled on the US HIPAA Security Rule for health information."],
             ].map(([name, text], i) => (
-              <li
+              <MotionCard
                 key={name}
-                data-reveal
-                style={{ "--d": `${(i % 4) * 90}ms` } as CSSProperties}
+                as="li"
+                delay={(i % 4) * 0.09}
                 className="rounded-2xl bg-ink-raised p-6 shadow-sm"
               >
                 <h3 className="text-lg">{name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{text}</p>
-              </li>
+              </MotionCard>
             ))}
           </ul>
         </div>

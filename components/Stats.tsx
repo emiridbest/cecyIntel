@@ -53,9 +53,9 @@ export default function Stats() {
   }, []);
 
   return (
-    <div ref={ref} className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+    <div ref={ref} className="grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
       {STATS.map((s) => (
-        <div key={s.label} className="text-center">
+        <div key={s.label} className="border-l-2 border-gold pl-5">
           <p className="text-4xl font-bold text-[#171310] sm:text-5xl">
             {format(Math.round(s.value * progress))}
             {s.suffix}
