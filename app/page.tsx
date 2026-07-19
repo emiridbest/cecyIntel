@@ -3,35 +3,41 @@ import Link from "next/link";
 import Stats from "@/components/Stats";
 import Hero from "@/components/Hero";
 import MotionCard from "@/components/MotionCard";
+import AudienceCard from "@/components/AudienceCard";
 import ComplianceMarquee from "@/components/ComplianceMarquee";
 
 const AUDIENCES = [
   {
     name: "Researchers",
+    kicker: "Academia & research",
     text: "Apply for tiered access to cleaned, documented, de-identified datasets, with the provenance and codebooks you need to publish.",
     img: "/scientistMicroscope.png",
     alt: "A scientist working at a microscope",
   },
   {
     name: "Government",
+    kicker: "Public sector",
     text: "See across your own programmes. We reconcile facility reporting with survey and claims data so policy decisions rest on more than one source.",
     img: "/decisionChart.png",
     alt: "Officials reviewing charts and figures around a table",
   },
   {
     name: "Insurers & HMOs",
+    kicker: "Payers",
     text: "Price risk on Nigerian morbidity patterns rather than imported actuarial tables, and benchmark claims against national utilisation data.",
     img: "/leansChart.png",
     alt: "A magnifying lens over a printed trend chart",
   },
   {
     name: "Pharma & life sciences",
-    text: "Understand real treatment pathways, disease burden, and site feasibility in  Africa before committing to trials or market entry.",
+    kicker: "Life sciences",
+    text: "Understand real treatment pathways, disease burden, and site feasibility in Africa before committing to trials or market entry.",
     img: "/pharmTab.png",
     alt: "A gloved hand recording pharmaceutical data on a chart",
   },
   {
     name: "NGOs & development partners",
+    kicker: "Development",
     text: "Target interventions and measure outcomes with the same evidence base your government counterparts use.",
     img: "/healthAndSafety.png",
     alt: "A health-and-safety puzzle piece being fitted into place",
@@ -286,28 +292,19 @@ export default function HomePage() {
             Who it serves
           </p>
           <h2 data-reveal className="chip text-2xl sm:text-3xl">Who we serve</h2>
-          <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 space-y-6">
             {AUDIENCES.map((a, i) => (
-              <MotionCard
+              <AudienceCard
                 key={a.name}
-                as="li"
-                delay={(i % 3) * 0.11}
-                className="overflow-hidden rounded-2xl bg-ink-raised shadow-sm"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={a.img}
-                  alt={a.alt}
-                  loading="lazy"
-                  className="aspect-[3/2] w-full object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl">{a.name}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">{a.text}</p>
-                </div>
-              </MotionCard>
+                index={i}
+                name={a.name}
+                kicker={a.kicker}
+                text={a.text}
+                img={a.img}
+                alt={a.alt}
+              />
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
