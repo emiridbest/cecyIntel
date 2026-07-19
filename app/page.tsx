@@ -95,7 +95,7 @@ export default function HomePage() {
       <section className="bg-[#0a0a0a] text-white">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
           <p data-reveal className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">
-            The gap, in figures
+            The Gap
           </p>
           <h2 data-reveal className="chip text-2xl text-white sm:text-3xl">
             Why African data matters

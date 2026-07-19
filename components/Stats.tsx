@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from "react";
 const STATS = [
   { value: 36, suffix: "", label: "States to be covered, plus the FCT" },
   { value: 500000, suffix: "+", label: "Subjects to be enrolled" },
-  { value: 10, suffix: "+", label: "National data sources connected" },
+  { value: 10, suffix: "+", label: "Targeted data sources connected" },
   { value: 3, suffix: "", label: "Access tiers, from open to governed" },
 ];
 
