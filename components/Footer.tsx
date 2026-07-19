@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 /*
  * The footer is the site's black anchor - explicit dark-ground hexes rather
@@ -41,10 +41,10 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="mailto:cecyintelligence@afrihealthIQ.com"
+                href="mailto:cecyintelligence@afrihealthiq.com"
                 className="break-all text-[#a8a8a8] hover:text-[#f5d68a]"
               >
-                cecyintelligence@afrihealthIQ.com
+                cecyintelligence@afrihealthiq.com
               </a>
             </li>
           </ul>

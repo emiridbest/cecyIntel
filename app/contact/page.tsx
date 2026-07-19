@@ -48,10 +48,10 @@ export default function ContactPage() {
                 </li>
                 <li>
                   <a
-                    href="mailto:cecyintelligence@afrihealthIQ.com"
+                    href="mailto:cecyintelligence@afrihealthiq.com"
                     className="break-all text-gold underline underline-offset-4 hover:text-gold-light"
                   >
-                    cecyintelligence@afrihealthIQ.com
+                    cecyintelligence@afrihealthiq.com
                   </a>
                 </li>
               </ul>
