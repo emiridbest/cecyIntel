@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/*
+ * White-and-gold theme. White is the ground; gold carries the identity:
+ * text accents use darkened golds that pass WCAG AA on white, while pure
+ * logo golds (#F5D68A / #D4A03C) appear only as fills - rules, bands, CTAs.
+ *
+ *   ink        → page background (warm white)
+ *   ink-raised → form-field / card surface
+ *   gold       → primary accent (AA on white)
+ *   gold-light → hover / emphasis (darker still)
+ *   gold-deep  → labels, hairlines
+ */
+@theme {
+  --color-ink: #ffffff;
+  --color-ink-raised: #f9f5ea;
+  --color-line: #e7dfc9;
+  --color-gold-light: #6f4c10;
+  --color-gold: #8a5f16;
+  --color-gold-deep: #8a5f16;
+  --color-body: #171310;
+  /* "Muted" is now near-black too - body copy reads black, gold stays in
+     the backgrounds, chips, and accents. */
+  --color-muted: #262626;
+
+  /*
+   * All-sans, UK Biobank style. `font-serif` classes remain in the
+   * components but now resolve to Inter too - headings differ by weight
+   * and color, not typeface.
+   */
+  --font-serif: var(--font-inter), system-ui, sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
+
+/*
+ * Alternating cream-gold sections. Tailwind v4 utilities resolve through
+ * these variables, so re-mapping them here flips everything inside a
+ * `.light` section without per-component styles. (Class name kept from the
+ * earlier black/white scheme.)
+ */
+.light {
+  --color-ink: #faf6ea;
+  --color-ink-raised: #ffffff;
+  --color-line: #e8e0c8;
+  background-color: #faf6ea;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-body);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+ * Pure white gaps between page sections: every top-level block inside main
+ * (tinted bands, photo banners, CTA bands) floats on the white page with
+ * clear space above it, UK Biobank style. The last block also clears the
+ * footer.
+ */
+main > * + * {
+  margin-top: clamp(1.75rem, 3.5vw, 3rem);
+}
+
+main > *:last-child {
+  margin-bottom: clamp(1.75rem, 3.5vw, 3rem);
+}
+
+/*
+ * UK Biobank pattern: headings carry the deep brand color (theirs is teal
+ * #005F6F; ours is deep gold). Sections that need different heading colors
+ * (gold CTA bands, footer) override with utility classes.
+ */
+h1,
+h2,
+h3 {
+  color: #171310;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/*
+ * UK Biobank-style heading "chip": bold white text in a deep-gold box.
+ * box-decoration-break: clone gives each wrapped line its own box, exactly
+ * like UKB's multi-line hero titles.
+ */
+.chip {
+  display: inline;
+  background: #6f4c10;
+  color: #ffffff;
+  padding: 0.18em 0.45em;
+  font-weight: 700;
+  line-height: 1.45;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+::selection {
+  background-color: #d4a03c;
+  color: #171310;
+}
+
+:focus-visible {
+  outline: 2px solid #8a5f16;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ---- Motion (opacity fades only) --------------------------------------- */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .anim-rise {
+    animation: rise 0.7s ease-out both;
+  }
+  .anim-rise-delayed {
+    animation: rise 0.7s ease-out 0.15s both;
+  }
+
+  /* Scroll-driven reveals where supported; harmless no-op elsewhere. */
+  @supports (animation-timeline: view()) {
+    main section > div {
+      animation: rise both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+
+    .reveal {
+      animation: rise both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+  }
+}
