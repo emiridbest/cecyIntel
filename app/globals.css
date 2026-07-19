@@ -114,37 +114,70 @@ h3 {
   border-radius: 2px;
 }
 
-/* ---- Motion (opacity fades only) --------------------------------------- */
+/* ---- Motion ------------------------------------------------------------ */
 
 @keyframes rise {
   from {
     opacity: 0;
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
+    transform: none;
+  }
+}
+
+/* Slow drift on the hero, so the background feels alive under the text. */
+@keyframes heroPan {
+  from {
+    transform: scale(1.08) translateX(-1.5%);
+  }
+  to {
+    transform: scale(1.08) translateX(1.5%);
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .anim-rise {
-    animation: rise 0.7s ease-out both;
+    animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
   .anim-rise-delayed {
-    animation: rise 0.7s ease-out 0.15s both;
+    animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.18s both;
+  }
+  .anim-rise-delayed-2 {
+    animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.34s both;
   }
 
-  /* Scroll-driven reveals where supported; harmless no-op elsewhere. */
-  @supports (animation-timeline: view()) {
-    main section > div {
-      animation: rise both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 40%;
-    }
+  .hero-pan {
+    animation: heroPan 18s ease-in-out infinite alternate;
+  }
 
-    .reveal {
-      animation: rise both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 45%;
-    }
+  /*
+   * Scroll reveals. The hidden state only applies once the ScrollAnimations
+   * client has tagged <html> with `reveal-ready`, so no-JS visitors always
+   * see content. Direction and stagger come from data attributes and the
+   * --d delay variable set inline.
+   */
+  html.reveal-ready [data-reveal] {
+    opacity: 0;
+    transform: translateY(32px);
+    transition:
+      opacity 0.75s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--d, 0ms);
+    will-change: opacity, transform;
+  }
+  html.reveal-ready [data-reveal="left"] {
+    transform: translateX(-40px);
+  }
+  html.reveal-ready [data-reveal="right"] {
+    transform: translateX(40px);
+  }
+  html.reveal-ready [data-reveal="scale"] {
+    transform: scale(0.94);
+  }
+  html.reveal-ready [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
   }
 }

@@ -1,4 +1,5 @@
-﻿import Link from "next/link";
+import type { CSSProperties } from "react";
+import Link from "next/link";
 import Stats from "@/components/Stats";
 
 const AUDIENCES = [
@@ -47,22 +48,25 @@ export default function HomePage() {
           loop
           playsInline
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="hero-pan absolute inset-0 h-full w-full object-cover"
         />
         {/* Scrim so the overlaid text keeps AA contrast on the video */}
         <div aria-hidden="true" className="absolute inset-0 bg-black/60" />
 
         <div className="relative mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-36">
-          <h1 className="anim-rise max-w-3xl text-3xl font-extrabold leading-[1.2] text-white sm:text-5xl">
-            Health-data infrastructure for Nigeria and Africa
+          <p className="anim-rise mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-[#f5d68a]">
+            Health-data infrastructure
+          </p>
+          <h1 className="anim-rise-delayed max-w-3xl text-3xl font-extrabold leading-[1.15] text-white sm:text-5xl">
+            Connecting the health data Africa already produces
           </h1>
-          <p className="anim-rise-delayed mt-8 max-w-2xl text-lg leading-relaxed text-white">
+          <p className="anim-rise-delayed-2 mt-8 max-w-2xl text-lg leading-relaxed text-white">
             Nigeria already produces the health data it needs. Cecy
             Intelligence aggregates, cleans, and connects facility reporting,
             health surveys, insurance claims, and disease registries into one
             governed, tiered access analytics layer.
           </p>
-          <div className="anim-rise-delayed mt-10 flex flex-wrap gap-4">
+          <div className="anim-rise-delayed-2 mt-10 flex flex-wrap gap-4">
             <Link
               href="/survey"
               className="rounded-full bg-[#d4a03c] px-6 py-3 text-sm font-medium text-[#0a0a0a] transition-colors hover:bg-[#f5d68a]"
@@ -82,9 +86,12 @@ export default function HomePage() {
       {/* The data gap */}
       <section className="light">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <h2 className="chip text-2xl sm:text-3xl">The data gap</h2>
+          <p data-reveal className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
+            The problem
+          </p>
+          <h2 data-reveal className="chip text-2xl sm:text-3xl">The data gap</h2>
           <div className="mt-10 grid gap-10 lg:grid-cols-2">
-            <div className="space-y-5 leading-relaxed text-muted">
+            <div data-reveal="left" className="space-y-5 leading-relaxed text-muted">
               <p>
                 Every month, tens of thousands of Nigerian health facilities
                 report into the National Health Management Information System.
@@ -105,7 +112,7 @@ export default function HomePage() {
                 the system pays for that gap, over and over.
               </p>
             </div>
-            <div className="border-l border-gold-deep pl-6">
+            <div data-reveal="right" className="border-l border-gold-deep pl-6">
               <h3 className="text-xs uppercase tracking-widest text-gold-deep">The hard numbers</h3>
               <ul className="mt-5 space-y-5 text-sm leading-relaxed text-muted">
                 <li>
@@ -156,6 +163,7 @@ export default function HomePage() {
           </div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
+            data-reveal="scale"
             src="/nurseForm.png"
             alt="A nurse completing a paper reporting form on a clipboard"
             loading="lazy"
@@ -167,14 +175,14 @@ export default function HomePage() {
       {/* Vision and mission */}
       <section className="bg-[#0a0a0a] text-white">
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-2">
-          <div>
+          <div data-reveal="left">
             <h2 className="chip text-2xl text-white">Our vision</h2>
             <p className="mt-6 text-xl leading-relaxed text-white">
               Health decisions that affect African lives are informed by
               African data.
             </p>
           </div>
-          <div>
+          <div data-reveal="right">
             <h2 className="chip text-2xl text-white">Our mission</h2>
             <p className="mt-6 leading-relaxed text-[#d9d9d9]">
               We aggregate, standardise, and govern the health data Africa
@@ -189,7 +197,10 @@ export default function HomePage() {
       {/* Programme targets */}
       <section className="light">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <h2 className="chip text-2xl sm:text-3xl">Where we are headed</h2>
+          <p data-reveal className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
+            Our targets
+          </p>
+          <h2 data-reveal className="chip text-2xl sm:text-3xl">Where we are headed</h2>
           <div className="mt-12">
             <Stats />
           </div>
@@ -199,14 +210,18 @@ export default function HomePage() {
       {/* Our approach */}
       <section>
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <h2 className="chip text-2xl sm:text-3xl">What we build</h2>
+          <p data-reveal className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
+            The solution
+          </p>
+          <h2 data-reveal className="chip text-2xl sm:text-3xl">What we build</h2>
           <div className="mt-6 grid items-center gap-10 lg:grid-cols-[3fr_2fr]">
-            <p className="max-w-2xl leading-relaxed text-muted">
+            <p data-reveal="left" className="max-w-2xl leading-relaxed text-muted">
               We connect the data Nigeria already collects to the decisions it
               should inform.
             </p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
+              data-reveal="right"
               src="/dataAnalyst.png"
               alt="An analyst working with health data dashboards on screen"
               loading="lazy"
@@ -233,8 +248,13 @@ export default function HomePage() {
                 // three stacked tiers
                 icon: <path d="M12 4 4 8l8 4 8-4-8-4ZM4 12l8 4 8-4M4 16l8 4 8-4" />,
               },
-            ].map((step) => (
-              <div key={step.title} className="reveal rounded-2xl bg-ink-raised p-8 shadow-sm">
+            ].map((step, i) => (
+              <div
+                key={step.title}
+                data-reveal
+                style={{ "--d": `${i * 110}ms` } as CSSProperties}
+                className="rounded-2xl bg-ink-raised p-8 shadow-sm"
+              >
                 <span
                   aria-hidden="true"
                   className="flex h-14 w-14 items-center justify-center rounded-full bg-[#6f4c10]"
@@ -270,11 +290,18 @@ export default function HomePage() {
       {/* Who we serve */}
       <section className="light">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <h2 className="chip text-2xl sm:text-3xl">Who we serve</h2>
-          {/* UKB-style photo cards: image top, flat white card, gold rule */}
+          <p data-reveal className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
+            Who it serves
+          </p>
+          <h2 data-reveal className="chip text-2xl sm:text-3xl">Who we serve</h2>
           <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {AUDIENCES.map((a) => (
-              <li key={a.name} className="reveal overflow-hidden rounded-2xl bg-ink-raised shadow-sm">
+            {AUDIENCES.map((a, i) => (
+              <li
+                key={a.name}
+                data-reveal
+                style={{ "--d": `${(i % 3) * 110}ms` } as CSSProperties}
+                className="overflow-hidden rounded-2xl bg-ink-raised shadow-sm"
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={a.img}
@@ -295,8 +322,11 @@ export default function HomePage() {
       {/* Compliance frame */}
       <section>
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <h2 className="chip text-2xl sm:text-3xl">Compliance</h2>
-          <p className="mt-6 max-w-2xl leading-relaxed text-muted">
+          <p data-reveal className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
+            Trust
+          </p>
+          <h2 data-reveal className="chip text-2xl sm:text-3xl">Compliance</h2>
+          <p data-reveal className="mt-6 max-w-2xl leading-relaxed text-muted">
             We operate under the Nigeria Data Protection Act 2023 and align
             our safeguards with international health data standards.
           </p>
@@ -306,8 +336,13 @@ export default function HomePage() {
               ["NDPC", "Registered posture under the Nigeria Data Protection Commission's implementing directions."],
               ["GDPR-aligned", "De-identification, purpose limitation, and data subject rights modelled on the EU General Data Protection Regulation."],
               ["HIPAA-aligned", "Technical and administrative safeguards modelled on the US HIPAA Security Rule for health information."],
-            ].map(([name, text]) => (
-              <li key={name} className="rounded-2xl bg-ink-raised p-6 shadow-sm">
+            ].map(([name, text], i) => (
+              <li
+                key={name}
+                data-reveal
+                style={{ "--d": `${(i % 4) * 90}ms` } as CSSProperties}
+                className="rounded-2xl bg-ink-raised p-6 shadow-sm"
+              >
                 <h3 className="text-lg">{name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{text}</p>
               </li>
@@ -319,10 +354,10 @@ export default function HomePage() {
       {/* CTA - one of the few places pure logo gold is used as a fill. */}
       <section className="bg-[#f8e5b4] text-[#171310]">
         <div className="mx-auto max-w-6xl px-5 py-20 text-center sm:px-8">
-          <h2 className="mx-auto max-w-2xl font-serif text-3xl leading-snug sm:text-4xl">
+          <h2 data-reveal className="mx-auto max-w-2xl font-serif text-3xl leading-snug sm:text-4xl">
             Tell us how you use Nigerian health data and what stops you.
           </h2>
-          <p className="mx-auto mt-6 max-w-xl leading-relaxed text-[#4a3a15]">
+          <p data-reveal style={{ "--d": "80ms" } as CSSProperties} className="mx-auto mt-6 max-w-xl leading-relaxed text-[#4a3a15]">
             Our five-minute survey is shaping which datasets we prioritise and
             how access should work. Early respondents get first access to pilot
             programmes.
