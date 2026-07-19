@@ -1,0 +1,59 @@
+/*
+ * Bold editorial audience card (UK Biobank news-card style): a solid colour
+ * panel with kicker, big heading, description and arrow, beside a full-bleed
+ * image split by a diagonal edge. The card background is the panel colour and
+ * the image sits in its own grid cell with a diagonal clip so the panel colour
+ * shows through the notch. Panels alternate gold/black; the image side flips on
+ * alternate rows. Stacks on mobile (image on top, no diagonal). No client JS -
+ * reveal comes from the CSS `reveal` class.
+ */
+export default function AudienceCard({
+  name,
+  kicker,
+  text,
+  img,
+  alt,
+  index,
+}: {
+  name: string;
+  kicker: string;
+  text: string;
+  img: string;
+  alt: string;
+  index: number;
+}) {
+  const flip = index % 2 === 1;
+  const gold = index % 2 === 0;
+  const panel = gold ? "bg-[#6f4c10]" : "bg-[#0a0a0a]";
+  const clip = flip
+    ? "lg:[clip-path:polygon(0_0,100%_0,90%_100%,0_100%)]"
+    : "lg:[clip-path:polygon(10%_0,100%_0,100%_100%,0_100%)]";
+
+  return (
+    <div
+      className={`reveal grid overflow-hidden rounded-2xl text-white shadow-sm lg:grid-cols-2 lg:items-stretch ${panel}`}
+    >
+      {/* Image cell */}
+      <div className={`${flip ? "lg:order-1" : "lg:order-2"} ${clip}`}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={img} alt={alt} loading="lazy" className="h-52 w-full object-cover lg:h-full" />
+      </div>
+
+      {/* Text cell. min-w-0 lets long headings wrap instead of overflowing. */}
+      <div
+        className={`flex min-w-0 flex-col justify-center p-8 sm:p-12 ${
+          flip ? "lg:order-2" : "lg:order-1"
+        }`}
+      >
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">{kicker}</p>
+        <h3 className="mt-3 text-2xl font-extrabold leading-tight text-white sm:text-3xl">{name}</h3>
+        <p className="mt-4 max-w-md leading-relaxed text-[#e6e0d0]">{text}</p>
+        <span aria-hidden="true" className="mt-6 inline-flex text-[#f5d68a]">
+          <svg width="26" height="16" viewBox="0 0 26 16" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path d="M2 8h20M17 2l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
+      </div>
+    </div>
+  );
+}

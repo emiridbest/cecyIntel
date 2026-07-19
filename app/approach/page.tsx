@@ -74,7 +74,7 @@ export default function ApproachPage() {
           key={h.title}
           className={`${i % 2 === 0 ? "light " : ""}`}
         >
-          <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <div className="mx-auto max-w-6xl px-5 pb-16 pt-3 sm:px-8 sm:pb-20 sm:pt-4">
             <p className="text-xs uppercase tracking-[0.25em] text-gold">{h.label}</p>
             <h2 className="mt-4 max-w-2xl text-2xl sm:text-3xl">
               <span className="chip">{h.title}</span>
