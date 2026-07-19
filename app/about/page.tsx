@@ -56,7 +56,7 @@ export default function AboutPage() {
               src="/labRead.png"
               alt="A laboratory scientist reading results from a screen"
               loading="lazy"
-              className="mt-8 max-h-64 w-full object-cover [clip-path:polygon(0_1.5rem,100%_0,100%_100%,0_100%)] sm:border-2 sm:border-gold-deep sm:[clip-path:none] lg:max-h-none"
+              className="mt-8 max-h-64 w-full object-cover rounded-2xl lg:max-h-none"
             />
           </div>
           <div className="space-y-5 leading-relaxed text-muted">
@@ -94,7 +94,7 @@ export default function AboutPage() {
                 src="/consent.png"
                 alt="A health worker explaining a consent form to a patient before signing"
                 loading="lazy"
-                className="mt-8 max-h-64 w-full object-cover [clip-path:polygon(0_1.5rem,100%_0,100%_100%,0_100%)] sm:border-2 sm:border-gold-deep sm:[clip-path:none] lg:max-h-none"
+                className="mt-8 max-h-64 w-full object-cover rounded-2xl lg:max-h-none"
               />
             </div>
             <div className="space-y-5 leading-relaxed text-muted">
@@ -104,7 +104,7 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <dl className="mt-14 grid gap-px overflow-hidden border border-line bg-line sm:grid-cols-2">
+          <dl className="mt-14 grid gap-6 sm:grid-cols-2">
             {[
               ["NDPA 2023 compliance", "We process data under the Nigeria Data Protection Act 2023 and the NDPC's implementing directions: defined lawful bases for every dataset, data-processing agreements with every source, and a named data protection officer."],
               ["De-identification by default", "Individual-level data is de-identified before it enters any analytical environment. Direct identifiers are removed at ingestion; quasi-identifiers are assessed for re-identification risk before any release."],
@@ -113,7 +113,7 @@ export default function AboutPage() {
               ["Local review", "Research uses of our data are expected to carry approval from a recognised Nigerian health research ethics committee, in line with the National Health Research Ethics Committee framework."],
               ["Data stays governed", "We do not sell personal data. Commercial access is to de-identified, aggregated, or synthetic outputs. Commercial pricing subsidises the free public and academic tiers."],
             ].map(([title, text]) => (
-              <div key={title} className="border-t-2 border-gold bg-ink p-8">
+              <div key={title} className="rounded-2xl bg-ink-raised p-8 shadow-sm">
                 <dt className="font-serif text-xl text-gold-light">{title}</dt>
                 <dd className="mt-3 text-sm leading-relaxed text-muted">{text}</dd>
               </div>

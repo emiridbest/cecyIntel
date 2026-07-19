@@ -91,7 +91,7 @@ export default function ApproachPage() {
                   src={h.img}
                   alt={h.alt}
                   loading="lazy"
-                  className="mb-8 aspect-[3/2] w-full object-cover [clip-path:polygon(0_1.5rem,100%_0,100%_100%,0_100%)] sm:border-2 sm:border-gold-deep sm:[clip-path:none]"
+                  className="mb-8 aspect-[3/2] w-full object-cover rounded-2xl"
                 />
                 <div className="border-l border-gold-deep pl-6">
                   <h3 className="text-xs uppercase tracking-widest text-gold-deep">
@@ -118,13 +118,13 @@ export default function ApproachPage() {
           <div className="mt-10 flex justify-center gap-4">
             <Link
               href="/survey"
-              className="bg-[#171310] px-6 py-3 text-sm font-medium text-[#f5d68a] transition-colors hover:bg-[#3a2c12]"
+              className="rounded-full bg-[#171310] px-6 py-3 text-sm font-medium text-[#f5d68a] transition-colors hover:bg-[#3a2c12]"
             >
               Take the survey
             </Link>
             <Link
               href="/contact"
-              className="border border-[#171310]/40 px-6 py-3 text-sm transition-colors hover:border-[#171310]"
+              className="rounded-full border border-[#171310]/40 px-6 py-3 text-sm transition-colors hover:border-[#171310]"
             >
               Contact us
             </Link>

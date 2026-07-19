@@ -173,7 +173,7 @@ export default function SurveyForm() {
           <button
             type="button"
             onClick={() => goTo(step - 1)}
-            className="border border-line px-6 py-3 text-sm hover:border-gold hover:text-gold-light"
+            className="rounded-full border border-line px-6 py-3 text-sm hover:border-gold hover:text-gold-light"
           >
             Back
           </button>
@@ -184,7 +184,7 @@ export default function SurveyForm() {
           <button
             type="button"
             onClick={handleNext}
-            className="bg-gold px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-gold-light"
+            className="rounded-full bg-gold px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-gold-light"
           >
             Continue
           </button>

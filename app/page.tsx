@@ -53,10 +53,8 @@ export default function HomePage() {
         <div aria-hidden="true" className="absolute inset-0 bg-black/60" />
 
         <div className="relative mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-36">
-          <h1 className="anim-rise max-w-3xl text-3xl leading-[1.65] sm:text-5xl sm:leading-[1.55]">
-            <span className="chip">Health-data infrastructure</span>
-            <br />
-            <span className="chip">for Nigeria and  Africa</span>
+          <h1 className="anim-rise max-w-3xl text-3xl font-extrabold leading-[1.2] text-white sm:text-5xl">
+            Health-data infrastructure for Nigeria and Africa
           </h1>
           <p className="anim-rise-delayed mt-8 max-w-2xl text-lg leading-relaxed text-white">
             Nigeria already produces the health data it needs. Cecy
@@ -67,13 +65,13 @@ export default function HomePage() {
           <div className="anim-rise-delayed mt-10 flex flex-wrap gap-4">
             <Link
               href="/survey"
-              className="bg-[#d4a03c] px-6 py-3 text-sm font-medium text-[#0a0a0a] transition-colors hover:bg-[#f5d68a]"
+              className="rounded-full bg-[#d4a03c] px-6 py-3 text-sm font-medium text-[#0a0a0a] transition-colors hover:bg-[#f5d68a]"
             >
               Take the data-access survey
             </Link>
             <Link
               href="/approach"
-              className="border border-white/60 px-6 py-3 text-sm text-white transition-colors hover:border-[#f5d68a] hover:text-[#f5d68a]"
+              className="rounded-full border border-white/60 px-6 py-3 text-sm text-white transition-colors hover:border-[#f5d68a] hover:text-[#f5d68a]"
             >
               Read our approach
             </Link>
@@ -161,7 +159,7 @@ export default function HomePage() {
             src="/nurseForm.png"
             alt="A nurse completing a paper reporting form on a clipboard"
             loading="lazy"
-            className="mt-12 max-h-80 w-full object-cover [clip-path:polygon(0_1.5rem,100%_0,100%_100%,0_100%)] sm:border-2 sm:border-gold-deep sm:[clip-path:none]"
+            className="mt-12 max-h-80 w-full object-cover rounded-2xl"
           />
         </div>
       </section>
@@ -170,14 +168,14 @@ export default function HomePage() {
       <section className="bg-[#0a0a0a] text-white">
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-2">
           <div>
-            <h2 className="chip text-2xl">Our vision</h2>
+            <h2 className="chip text-2xl text-white">Our vision</h2>
             <p className="mt-6 text-xl leading-relaxed text-white">
               Health decisions that affect African lives are informed by
               African data.
             </p>
           </div>
           <div>
-            <h2 className="chip text-2xl">Our mission</h2>
+            <h2 className="chip text-2xl text-white">Our mission</h2>
             <p className="mt-6 leading-relaxed text-[#d9d9d9]">
               We aggregate, standardise, and govern the health data Africa
               already produces, and we make it accessible through transparent,
@@ -212,10 +210,10 @@ export default function HomePage() {
               src="/dataAnalyst.png"
               alt="An analyst working with health data dashboards on screen"
               loading="lazy"
-              className="max-h-56 w-full object-cover [clip-path:polygon(0_1.5rem,100%_0,100%_100%,0_100%)] sm:border-2 sm:border-gold-deep sm:[clip-path:none]"
+              className="max-h-56 w-full object-cover rounded-2xl"
             />
           </div>
-          <div className="mt-12 grid gap-px overflow-hidden border border-gold-deep bg-gold-deep sm:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-3">
             {[
               {
                 title: "Aggregate",
@@ -236,7 +234,7 @@ export default function HomePage() {
                 icon: <path d="M12 4 4 8l8 4 8-4-8-4ZM4 12l8 4 8-4M4 16l8 4 8-4" />,
               },
             ].map((step) => (
-              <div key={step.title} className="reveal bg-ink p-8">
+              <div key={step.title} className="reveal rounded-2xl bg-ink-raised p-8 shadow-sm">
                 <span
                   aria-hidden="true"
                   className="flex h-14 w-14 items-center justify-center rounded-full bg-[#6f4c10]"
@@ -276,7 +274,7 @@ export default function HomePage() {
           {/* UKB-style photo cards: image top, flat white card, gold rule */}
           <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {AUDIENCES.map((a) => (
-              <li key={a.name} className="reveal border-t-2 border-gold bg-ink-raised">
+              <li key={a.name} className="reveal overflow-hidden rounded-2xl bg-ink-raised shadow-sm">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={a.img}
@@ -309,7 +307,7 @@ export default function HomePage() {
               ["GDPR-aligned", "De-identification, purpose limitation, and data subject rights modelled on the EU General Data Protection Regulation."],
               ["HIPAA-aligned", "Technical and administrative safeguards modelled on the US HIPAA Security Rule for health information."],
             ].map(([name, text]) => (
-              <li key={name} className="border-t-2 border-gold bg-ink-raised p-6">
+              <li key={name} className="rounded-2xl bg-ink-raised p-6 shadow-sm">
                 <h3 className="text-lg">{name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{text}</p>
               </li>
@@ -332,13 +330,13 @@ export default function HomePage() {
           <div className="mt-10 flex justify-center gap-4">
             <Link
               href="/survey"
-              className="bg-[#171310] px-6 py-3 text-sm font-medium text-[#f5d68a] transition-colors hover:bg-[#3a2c12]"
+              className="rounded-full bg-[#171310] px-6 py-3 text-sm font-medium text-[#f5d68a] transition-colors hover:bg-[#3a2c12]"
             >
               Take the survey
             </Link>
             <Link
               href="/contact"
-              className="border border-[#171310]/40 px-6 py-3 text-sm transition-colors hover:border-[#171310]"
+              className="rounded-full border border-[#171310]/40 px-6 py-3 text-sm transition-colors hover:border-[#171310]"
             >
               Talk to us
             </Link>

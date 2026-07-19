@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Small form primitives shared by the contact and survey forms.
  * Each field wires its own label, error message, and aria attributes.
  */
@@ -133,7 +133,7 @@ export function SubmitButton(props: { children: React.ReactNode; loading: boolea
     <button
       type="submit"
       disabled={props.loading}
-      className="bg-gold px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-gold-light disabled:cursor-wait disabled:opacity-60"
+      className="rounded-full bg-gold px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-gold-light disabled:cursor-wait disabled:opacity-60"
     >
       {props.loading ? "Sending…" : props.children}
     </button>

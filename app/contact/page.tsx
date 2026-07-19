@@ -60,7 +60,7 @@ export default function ContactPage() {
                 src="/clinExam.png"
                 alt="A clinician examining a patient during a consultation"
                 loading="lazy"
-                className="mt-10 max-h-64 w-full object-cover [clip-path:polygon(0_1.5rem,100%_0,100%_100%,0_100%)] sm:border-2 sm:border-gold-deep sm:[clip-path:none] lg:max-h-none"
+                className="mt-10 max-h-64 w-full object-cover rounded-2xl lg:max-h-none"
               />
             </div>
             <ContactForm />
