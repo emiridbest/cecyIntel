@@ -5,9 +5,10 @@ import { motion } from "framer-motion";
 /*
  * Bold editorial card in the UK Biobank news-card style: a solid colour panel
  * with a kicker, large heading, description and arrow, beside a full-bleed
- * image split by a diagonal edge. Panels alternate gold/black and the image
- * side flips on alternate rows. Stacks cleanly on mobile (image on top, no
- * diagonal).
+ * image split by a diagonal edge. The card background is the panel colour, and
+ * the image sits in its own grid cell with a diagonal clip so the panel colour
+ * shows through the notch. Panels alternate gold/black and the image side
+ * flips on alternate rows. Stacks on mobile (image on top, no diagonal).
  */
 export default function AudienceCard({
   name,
@@ -28,10 +29,10 @@ export default function AudienceCard({
   const gold = index % 2 === 0;
   const panel = gold ? "bg-[#6f4c10]" : "bg-[#0a0a0a]";
 
-  // Diagonal cut on the image edge that meets the panel.
+  // Diagonal cut on the image edge that meets the panel (desktop only).
   const clip = flip
-    ? "lg:[clip-path:polygon(0_0,100%_0,88%_100%,0_100%)]"
-    : "lg:[clip-path:polygon(12%_0,100%_0,100%_100%,0_100%)]";
+    ? "lg:[clip-path:polygon(0_0,100%_0,90%_100%,0_100%)]"
+    : "lg:[clip-path:polygon(10%_0,100%_0,100%_100%,0_100%)]";
 
   return (
     <motion.div
@@ -39,26 +40,25 @@ export default function AudienceCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -8% 0px" }}
       transition={{ duration: 0.6, ease: [0.2, 0.7, 0.2, 1] }}
-      className={`relative overflow-hidden rounded-2xl text-white shadow-sm lg:min-h-[22rem] ${panel}`}
+      className={`grid overflow-hidden rounded-2xl text-white shadow-sm lg:grid-cols-2 lg:items-stretch ${panel}`}
     >
-      {/* Image: block on top for mobile, absolute diagonal half on desktop */}
-      <div
-        className={`lg:absolute lg:inset-y-0 lg:w-[58%] ${flip ? "lg:left-0" : "lg:right-0"} ${clip}`}
-      >
+      {/* Image cell */}
+      <div className={`${flip ? "lg:order-1" : "lg:order-2"} ${clip}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={img} alt={alt} loading="lazy" className="h-56 w-full object-cover lg:h-full" />
+        <img src={img} alt={alt} loading="lazy" className="h-52 w-full object-cover lg:h-full" />
       </div>
 
-      {/* Text panel */}
+      {/* Text cell. min-w-0 lets it shrink so long headings wrap instead of
+          overflowing the card. */}
       <div
-        className={`relative z-10 p-8 sm:p-12 lg:flex lg:min-h-[22rem] lg:w-[52%] lg:flex-col lg:justify-center ${
-          flip ? "lg:ml-auto" : ""
+        className={`flex min-w-0 flex-col justify-center p-8 sm:p-12 ${
+          flip ? "lg:order-2" : "lg:order-1"
         }`}
       >
         <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">{kicker}</p>
-        <h3 className="mt-3 text-3xl font-extrabold leading-tight text-white sm:text-4xl">{name}</h3>
+        <h3 className="mt-3 text-2xl font-extrabold leading-tight text-white sm:text-3xl">{name}</h3>
         <p className="mt-4 max-w-md leading-relaxed text-[#e6e0d0]">{text}</p>
-        <span aria-hidden="true" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#f5d68a]">
+        <span aria-hidden="true" className="mt-6 inline-flex text-[#f5d68a]">
           <svg width="26" height="16" viewBox="0 0 26 16" fill="none" stroke="currentColor" strokeWidth="2.5">
             <path d="M2 8h20M17 2l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
           </svg>

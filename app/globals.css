@@ -76,12 +76,17 @@ main > *:last-child {
  * #005F6F; ours is deep gold). Sections that need different heading colors
  * (gold CTA bands, footer) override with utility classes.
  */
-h1,
-h2,
-h3 {
-  color: #171310;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+/* In @layer base so Tailwind utilities (e.g. text-white on dark sections)
+   can override the default heading colour. Unlayered rules would win over
+   utilities and force headings dark on dark backgrounds. */
+@layer base {
+  h1,
+  h2,
+  h3 {
+    color: #171310;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
 }
 
 /*

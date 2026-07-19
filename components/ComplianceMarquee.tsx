@@ -9,7 +9,7 @@ type Item = { type: "logo"; src: string; alt: string } | { type: "text"; label: 
 
 const ITEMS: Item[] = [
   { type: "text", label: "NDPA 2023", sub: "Nigeria Data Protection Act" },
-  { type: "logo", src: "/ndpc.jpg", alt: "Nigeria Data Protection Commission" },
+  { type: "logo", src: "/ndpc.png", alt: "Nigeria Data Protection Commission" },
   { type: "logo", src: "/gdpr.png", alt: "GDPR aligned" },
   { type: "logo", src: "/hipaa.png", alt: "HIPAA aligned" },
 ];
