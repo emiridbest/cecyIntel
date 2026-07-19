@@ -3,6 +3,7 @@ import Link from "next/link";
 import Stats from "@/components/Stats";
 import Hero from "@/components/Hero";
 import MotionCard from "@/components/MotionCard";
+import ComplianceMarquee from "@/components/ComplianceMarquee";
 
 const AUDIENCES = [
   {
@@ -154,6 +155,38 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* One continent, one data layer - 3D globe */}
+      <section className="bg-[#0a0a0a] text-white">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-2">
+          <div data-reveal="left">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">
+              One continent
+            </p>
+            <h2 className="chip text-2xl text-white sm:text-3xl">Built for Africa&rsquo;s scale</h2>
+            <p className="mt-6 leading-relaxed text-[#d9d9d9]">
+              Africa carries about a quarter of the world&rsquo;s disease burden
+              with just over a sixth of its people, yet the data that could
+              guide the response sits in disconnected silos. We start in
+              Nigeria and its 36 states, then extend the same governed model
+              across the continent, country by country, under each
+              jurisdiction&rsquo;s own data-protection law.
+            </p>
+          </div>
+          <div data-reveal="right" className="mx-auto w-full max-w-md">
+            {/* The rotating 3D globe. Muted + playsInline for mobile autoplay. */}
+            <video
+              src="/globeVid.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              aria-label="A rotating globe showing Africa"
+              className="aspect-square w-full rounded-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Programme targets */}
       <section className="light">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
@@ -289,7 +322,8 @@ export default function HomePage() {
             We operate under the Nigeria Data Protection Act 2023 and align
             our safeguards with international health data standards.
           </p>
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ComplianceMarquee />
+          <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               ["NDPA 2023", "Nigeria Data Protection Act: lawful bases, data processing agreements, and a named data protection officer."],
               ["NDPC", "Registered posture under the Nigeria Data Protection Commission's implementing directions."],

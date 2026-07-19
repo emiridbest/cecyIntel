@@ -19,7 +19,7 @@ function format(n: number) {
   return n.toLocaleString("en-NG");
 }
 
-export default function Stats() {
+export default function Stats({ variant = "light" }: { variant?: "light" | "dark" }) {
   const ref = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
   const started = useRef(false);
@@ -52,15 +52,18 @@ export default function Stats() {
     return () => observer.disconnect();
   }, []);
 
+  const dark = variant === "dark";
   return (
     <div ref={ref} className="grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
       {STATS.map((s) => (
         <div key={s.label} className="border-l-2 border-gold pl-5">
-          <p className="text-4xl font-bold text-[#171310] sm:text-5xl">
+          <p className={`text-4xl font-bold sm:text-5xl ${dark ? "text-white" : "text-[#171310]"}`}>
             {format(Math.round(s.value * progress))}
             {s.suffix}
           </p>
-          <p className="mt-3 text-sm leading-snug text-muted">{s.label}</p>
+          <p className={`mt-3 text-sm leading-snug ${dark ? "text-[#d9d9d9]" : "text-muted"}`}>
+            {s.label}
+          </p>
         </div>
       ))}
     </div>

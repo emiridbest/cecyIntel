@@ -114,6 +114,45 @@ h3 {
   border-radius: 2px;
 }
 
+/* ---- Compliance logo marquee ------------------------------------------ */
+
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1.5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track {
+    animation: marquee 32s linear infinite;
+  }
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Two copies sit in the track; shifting one copy width loops seamlessly. */
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+
 /* ---- Motion ------------------------------------------------------------ */
 
 @keyframes rise {
