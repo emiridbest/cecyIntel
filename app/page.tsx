@@ -318,24 +318,6 @@ export default function HomePage() {
             our safeguards with international health data standards.
           </p>
           <ComplianceMarquee />
-          <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              ["NDPA 2023", "Nigeria Data Protection Act: lawful bases, data processing agreements, and a named data protection officer."],
-              ["NDPC", "Registered posture under the Nigeria Data Protection Commission's implementing directions."],
-              ["GDPR-aligned", "De-identification, purpose limitation, and data subject rights modelled on the EU General Data Protection Regulation."],
-              ["HIPAA-aligned", "Technical and administrative safeguards modelled on the US HIPAA Security Rule for health information."],
-            ].map(([name, text], i) => (
-              <MotionCard
-                key={name}
-                as="li"
-                delay={(i % 4) * 0.09}
-                className="rounded-2xl bg-ink-raised p-6 shadow-sm"
-              >
-                <h3 className="text-lg">{name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{text}</p>
-              </MotionCard>
-            ))}
-          </ul>
         </div>
       </section>
 

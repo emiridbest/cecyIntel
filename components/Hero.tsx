@@ -28,12 +28,6 @@ export default function Hero() {
     <section className="relative overflow-hidden border-b border-line bg-white">
       <div className="mx-auto max-w-4xl px-5 pt-20 text-center sm:px-8 sm:pt-28">
         <motion.div variants={container} initial="hidden" animate="show">
-          <motion.p
-            variants={item}
-            className="mb-6 text-xs font-semibold uppercase tracking-[0.3em] text-gold-deep"
-          >
-            Health-data infrastructure for Africa
-          </motion.p>
           <motion.h1
             variants={item}
             className="mx-auto max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight text-[#0a0a0a] sm:text-6xl"
