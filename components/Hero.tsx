@@ -74,24 +74,25 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Golden globe centred below the tagline, bleeding into the fold. */}
+      {/* Golden globe medallion, centred below the tagline. The source art is
+          gold-on-black, so we clip it to a circle and ring it in gold. */}
       <motion.div
-        className="mx-auto -mt-4 w-full max-w-lg px-5 sm:-mt-2"
+        className="mx-auto mt-14 w-full max-w-[15rem] px-5 pb-16 sm:mt-16 sm:max-w-xs sm:pb-24"
         initial={reduce ? false : { opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 1, ease: [0.2, 0.7, 0.2, 1], delay: 0.35 }}
       >
         <motion.div
-          animate={reduce ? undefined : { y: [0, -16, 0] }}
+          animate={reduce ? undefined : { y: [0, -14, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
         >
           <Image
             src="/globe.png"
             alt="The Cecy Intelligence globe of Africa, drawn in gold with connected network nodes"
-            width={640}
-            height={640}
+            width={512}
+            height={512}
             priority
-            className="mx-auto h-auto w-full drop-shadow-[0_20px_60px_rgba(212,160,60,0.35)]"
+            className="mx-auto h-auto w-full rounded-full ring-4 ring-[#d4a03c]/60 drop-shadow-[0_20px_60px_rgba(212,160,60,0.35)]"
           />
         </motion.div>
       </motion.div>
