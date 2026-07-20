@@ -32,12 +32,7 @@ export default function Hero() {
             variants={item}
             className="mx-auto max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight text-[#0a0a0a] sm:text-6xl"
           >
-            Connecting the health data{" "}
-            <span className="relative whitespace-nowrap">
-              Africa
-              <span aria-hidden="true" className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-[#f5d68a]/70" />
-            </span>{" "}
-            already produces
+            Connecting the health data Africa already produces
           </motion.h1>
           <motion.p
             variants={item}
