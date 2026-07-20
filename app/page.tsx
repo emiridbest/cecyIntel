@@ -256,46 +256,42 @@ export default function HomePage() {
               className="max-h-56 w-full object-cover [clip-path:polygon(0_1.5rem,100%_0,100%_100%,0_100%)] sm:border-2 sm:border-gold-deep sm:[clip-path:none]"
             />
           </div>
-          <div className="mt-12 grid gap-px overflow-hidden border border-gold-deep bg-gold-deep sm:grid-cols-3">
+          <div className="mt-12 grid gap-5 sm:grid-cols-3">
             {[
               {
                 title: "Aggregate",
                 text: "We bring NHMIS reporting, NDHS survey waves, claims, and registry data into one place, with documented provenance for every source.",
-                // database cylinder
                 icon: <path d="M12 5c4 0 7 1.1 7 2.5S16 10 12 10 5 8.9 5 7.5 8 5 12 5Zm7 4.5v3c0 1.4-3 2.5-7 2.5s-7-1.1-7-2.5v-3M19 12.5v4c0 1.4-3 2.5-7 2.5s-7-1.1-7-2.5v-4" />,
               },
               {
                 title: "Standardise",
                 text: "We map each source to common coding for diagnoses, facilities, and geography, so datasets that never met can finally be joined.",
-                // converging arrows
                 icon: <path d="M4 6h5l3 6 3-6h5M4 18h5l3-6 3 6h5" />,
               },
               {
                 title: "Open, in tiers",
                 text: "Public indicators are free. De-identified research extracts follow an application process. Sensitive linkages stay inside governed environments.",
-                // three stacked tiers
                 icon: <path d="M12 4 4 8l8 4 8-4-8-4ZM4 12l8 4 8-4M4 16l8 4 8-4" />,
               },
-            ].map((step) => (
-              <div key={step.title} className="reveal bg-ink p-8">
-                <span
-                  aria-hidden="true"
-                  className="flex h-14 w-14 items-center justify-center rounded-full bg-[#6f4c10]"
-                >
-                  <svg
-                    width="28"
-                    height="28"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#ffffff"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+            ].map((step, i) => (
+              <div
+                key={step.title}
+                data-reveal
+                style={{ "--d": `${i * 110}ms` } as CSSProperties}
+                className="rounded-2xl border-t-2 border-gold bg-ink-raised p-8 shadow-sm transition-transform duration-200 hover:-translate-y-1"
+              >
+                <div className="flex items-center justify-between">
+                  <span
+                    aria-hidden="true"
+                    className="flex h-14 w-14 items-center justify-center rounded-full bg-[#6f4c10]"
                   >
-                    {step.icon}
-                  </svg>
-                </span>
-                <h3 className="mt-5 text-2xl">{step.title}</h3>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                      {step.icon}
+                    </svg>
+                  </span>
+                  <span className="text-4xl font-extrabold tracking-tight text-gold/30">{`0${i + 1}`}</span>
+                </div>
+                <h3 className="mt-5 text-2xl font-bold">{step.title}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-muted">{step.text}</p>
               </div>
             ))}

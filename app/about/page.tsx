@@ -1,4 +1,5 @@
-﻿import type { Metadata } from "next";
+﻿import type { CSSProperties } from "react";
+import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import ComplianceMarquee from "@/components/ComplianceMarquee";
 
@@ -112,38 +113,39 @@ export default function AboutPage() {
       </section>
 
       <section>
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0 lg:grid-cols-[1fr_2fr]">
-          <div>
-            <h2 className="justify-self-start"><span className="chip text-2xl">Why now</span></h2>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/labRead.jpg"
-              alt="A laboratory scientist reading results from a screen"
-              loading="lazy"
-              className="mt-8 max-h-64 w-full object-cover [clip-path:polygon(0_1.5rem,100%_0,100%_100%,0_100%)] sm:border-2 sm:border-gold-deep sm:[clip-path:none] lg:max-h-none"
-            />
-          </div>
-          <div className="space-y-5 leading-relaxed text-muted">
-            <p>
-              Three things changed. First, the raw material matured: routine
-              facility reporting through NHMIS now runs on DHIS2 nationwide,
-              successive NDHS waves provide comparable population baselines,
-              and health-insurance expansion is generating claims data at a
-              scale Nigeria has never had.
-            </p>
-            <p>
-              Second, the legal foundation arrived. The Nigeria Data Protection
-              Act 2023 created a clear statutory framework for processing
-              personal and health data, including the lawful bases,
-              safeguards, and accountability that responsible data
-              infrastructure requires.
-            </p>
-            <p>
-              Third, the tools caught up. Modern data engineering makes it
-              feasible for a focused team to clean and harmonise sources that
-              once needed a decade-long donor programme, and to do it
-              continuously.
-            </p>
+        <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
+          <h2><span className="chip text-2xl">Why now</span></h2>
+          <p className="mt-8 max-w-2xl text-2xl font-semibold leading-snug tracking-tight text-body sm:text-3xl">
+            Three things changed at once.
+          </p>
+          <div className="mt-12 grid gap-8 lg:grid-cols-3 lg:gap-12">
+            {[
+              [
+                "The raw material matured",
+                "Routine reporting runs on DHIS2 nationwide, successive NDHS waves give comparable baselines, and health-insurance expansion is generating claims data at a scale Nigeria has never had.",
+              ],
+              [
+                "The legal foundation arrived",
+                "The Nigeria Data Protection Act 2023 created a clear statutory framework for health data: lawful bases, safeguards, and accountability.",
+              ],
+              [
+                "The tools caught up",
+                "Modern data engineering lets a focused team clean and harmonise sources that once needed a decade-long donor programme, and do it continuously.",
+              ],
+            ].map(([title, desc], i) => (
+              <div
+                key={title}
+                data-reveal
+                style={{ "--d": `${i * 110}ms` } as CSSProperties}
+                className="border-t-2 border-gold pt-5"
+              >
+                <span className="text-4xl font-extrabold tracking-tight text-gold sm:text-5xl">
+                  {`0${i + 1}`}
+                </span>
+                <h3 className="mt-3 text-xl font-bold text-body">{title}</h3>
+                <p className="mt-3 text-base leading-relaxed text-muted">{desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
