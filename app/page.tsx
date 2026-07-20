@@ -306,6 +306,64 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* The intelligence layer - models and AI on top of the data */}
+      <section className="bg-[#0a0a0a] text-white">
+        <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">
+            The intelligence layer
+          </p>
+          <h2 className="chip text-2xl text-white sm:text-3xl">From data to decisions</h2>
+          <p className="mt-8 max-w-3xl text-2xl font-semibold leading-snug tracking-tight sm:text-4xl">
+            Clean, connected data is the fuel modern AI needs.{" "}
+            <span className="text-[#f5d68a]">We build the models on top of it</span>, tuned to
+            African populations, not borrowed from elsewhere.
+          </p>
+
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                title: "Risk & demand models",
+                desc: "Forecast disease burden, utilisation and cost from local patterns, not imported actuarial tables.",
+                icon: <path d="M4 19h16M4 19V5m0 14 4-5 3 3 5-7 4 4" />,
+              },
+              {
+                title: "Early-warning signals",
+                desc: "Surface outbreaks and anomalies from surveillance and claims as they emerge.",
+                icon: <path d="M3 12h4l2 6 4-14 2 8h6" />,
+              },
+              {
+                title: "Decision support",
+                desc: "Turn indicators into clear guidance for governments, insurers and clinicians.",
+                icon: <path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.6.6 1 1.3 1 2.1V16h6v-.4c0-.8.4-1.5 1-2.1A6 6 0 0 0 12 3Z" />,
+              },
+              {
+                title: "Responsible by design",
+                desc: "Models are trained on de-identified data, documented and validated, never a black box over personal records.",
+                icon: <path d="M12 3 4 6v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V6l-8-3ZM9 12l2 2 4-4" />,
+              },
+            ].map((c, i) => (
+              <div
+                key={c.title}
+                data-reveal
+                style={{ "--d": `${i * 90}ms` } as CSSProperties}
+                className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-transform duration-200 hover:-translate-y-1"
+              >
+                <span
+                  aria-hidden="true"
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-[#6f4c10]"
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                    {c.icon}
+                  </svg>
+                </span>
+                <h3 className="mt-4 text-lg font-bold text-white">{c.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#b8b8b8]">{c.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Who we serve */}
       <section className="light">
         <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
