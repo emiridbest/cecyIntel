@@ -290,7 +290,7 @@ export default function HomePage() {
       </section>
 
       {/* Compliance - heading plus the auto-scrolling standards marquee */}
-      <section className="light">
+      <section>
         <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
             Built on trust

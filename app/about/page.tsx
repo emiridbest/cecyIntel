@@ -85,12 +85,28 @@ export default function AboutPage() {
               ["Inclusion", "Africa's health data problem affects every community. Our solutions must serve every community, not just those who can afford premium care."],
               ["Innovation", "The hardest problems in African health won't yield to old methods. We build new tools, and we keep making them better."],
             ].map(([name, text], i) => (
-              <div key={name} className="bg-ink-raised p-8">
-                <p className="font-serif text-sm text-gold-deep">{`0${i + 1}`}</p>
-                <dt className="mt-2 text-xl font-bold text-body">{name}</dt>
-                <dd className="mt-3 text-sm leading-relaxed text-muted">{text}</dd>
+              <div
+                key={name}
+                className="group bg-ink-raised p-8 transition-colors duration-300 hover:bg-[#6f4c10]"
+              >
+                <p className="font-serif text-sm text-gold-deep transition-colors group-hover:text-[#f5d68a]">
+                  {`0${i + 1}`}
+                </p>
+                <dt className="mt-2 text-xl font-bold text-body transition-colors group-hover:text-white">
+                  {name}
+                </dt>
+                <dd className="mt-3 text-sm leading-relaxed text-muted transition-colors group-hover:text-[#ecdfc2]">
+                  {text}
+                </dd>
               </div>
             ))}
+            {/* Sixth cell fills the grid with the brand line, in gold. */}
+            <div className="flex flex-col justify-center bg-[#6f4c10] p-8 text-white">
+              <p className="text-lg font-bold leading-snug">
+                Africa&rsquo;s most trusted health intelligence infrastructure.
+              </p>
+              <p className="mt-2 text-sm text-[#ecdfc2]">The data backbone for the continent.</p>
+            </div>
           </dl>
         </div>
       </section>
@@ -132,7 +148,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="governance" className="light scroll-mt-20">
+      <section id="governance" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
           <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
             <div>
