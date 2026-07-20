@@ -130,11 +130,20 @@ main > *:last-child {
 
 @media (prefers-reduced-motion: no-preference) {
   .marquee-track {
-    animation: marquee 32s linear infinite;
+    animation: marquee 22s linear infinite;
   }
   .marquee:hover .marquee-track {
     animation-play-state: paused;
   }
+}
+
+/* Cards lift and gain a gold ring on hover, so the strip feels alive. */
+.marquee-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.marquee-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-gold);
 }
 
 @keyframes marquee {

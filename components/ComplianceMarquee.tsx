@@ -16,7 +16,7 @@ const ITEMS: Item[] = [
 
 function Card({ item }: { item: Item }) {
   return (
-    <div className="flex h-24 w-56 shrink-0 items-center justify-center gap-3 rounded-2xl border border-line bg-white px-6 shadow-sm">
+    <div className="marquee-card flex h-24 w-56 shrink-0 items-center justify-center gap-3 rounded-2xl border border-line bg-white px-6 shadow-sm">
       {item.type === "logo" ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img src={item.src} alt={item.alt} loading="lazy" className="max-h-14 w-auto object-contain" />

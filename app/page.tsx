@@ -289,14 +289,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Compliance frame */}
-      <section>
+      {/* Compliance - heading plus the auto-scrolling standards marquee */}
+      <section className="light">
         <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
-          <h2 className="chip text-2xl sm:text-3xl">Compliance</h2>
-          <p className="mt-6 max-w-2xl leading-relaxed text-muted">
-            We operate under the Nigeria Data Protection Act 2023 and align
-            our safeguards with international health data standards.
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
+            Built on trust
           </p>
+          <h2 className="chip text-2xl sm:text-3xl">Compliance</h2>
           <ComplianceMarquee />
         </div>
       </section>
