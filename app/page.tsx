@@ -1,4 +1,5 @@
-﻿import Link from "next/link";
+﻿import type { CSSProperties } from "react";
+import Link from "next/link";
 import Stats from "@/components/Stats";
 import AudienceCard from "@/components/AudienceCard";
 import ComplianceMarquee from "@/components/ComplianceMarquee";
@@ -83,38 +84,78 @@ export default function HomePage() {
         />
       </section>
 
-      {/* The data gap */}
+      {/* The data gap - dynamic: bold lead, staggered silos, consequence */}
       <section className="light">
         <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
           <h2 className="chip text-2xl sm:text-3xl">The data gap</h2>
-          <div className="mt-10 grid items-center gap-10 lg:grid-cols-[1.4fr_1fr]">
-            <div className="space-y-5 leading-relaxed text-muted">
-              <p>
-                Every month, tens of thousands of Nigerian health facilities
-                report into the National Health Management Information System.
-                Every few years, the Demographic and Health Survey interviews
-                households across all thirty-six states. Insurers process claims
-                daily. Registries track cancer, sickle cell, and infectious
-                disease.
+          <p className="mt-8 max-w-3xl text-2xl font-semibold leading-snug tracking-tight text-body sm:text-4xl">
+            Nigeria collects mountains of health data every day.{" "}
+            <span className="text-gold">Almost none of it connects.</span>
+          </p>
+
+          {/* The silos - each slides in on a stagger */}
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                name: "Facility reporting",
+                desc: "Tens of thousands of facilities report into NHMIS every month.",
+                icon: <path d="M4 21V8l8-5 8 5v13M9 21v-6h6v6M10 9h4M10 12h4" />,
+              },
+              {
+                name: "Health surveys",
+                desc: "The NDHS interviews households across all thirty-six states.",
+                icon: <path d="M17 20a5 5 0 0 0-10 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />,
+              },
+              {
+                name: "Insurance claims",
+                desc: "Insurers and HMOs process claims every single day.",
+                icon: <path d="M6 3h9l3 3v15l-3-2-3 2-3-2-3 2V3ZM9 8h6M9 12h6M9 16h4" />,
+              },
+              {
+                name: "Disease registries",
+                desc: "Cancer, sickle cell, and infectious disease, each tracked apart.",
+                icon: <path d="M9 4h6v2h3v14H6V6h3V4ZM12 10v6M9 13h6" />,
+              },
+            ].map((s, i) => (
+              <div
+                key={s.name}
+                data-reveal
+                style={{ "--d": `${i * 90}ms` } as CSSProperties}
+                className="rounded-2xl bg-ink-raised p-6 shadow-sm transition-transform duration-200 hover:-translate-y-1"
+              >
+                <span
+                  aria-hidden="true"
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-[#6f4c10]"
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                    {s.icon}
+                  </svg>
+                </span>
+                <h3 className="mt-4 text-lg font-bold text-body">{s.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* The consequence - black callout with the image, split */}
+          <div className="mt-12 grid items-stretch overflow-hidden rounded-2xl bg-[#0a0a0a] text-white lg:grid-cols-2">
+            <div data-reveal="left" className="flex flex-col justify-center p-8 sm:p-12">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">
+                The consequence
               </p>
-              <p>
-                Almost none of it talks to anything else. Each dataset lives in
-                its own silo, in its own format, under its own gatekeeper. A
-                researcher can wait months for an extract; an insurer prices
-                products without national morbidity baselines; a ministry
-                measures a programme with the same system that funds it.
-              </p>
-              <p className="text-body">
-                The consequence is an absence of usable data. Every actor in
-                the system pays for that gap, over and over.
+              <p className="mt-4 text-2xl font-semibold leading-snug tracking-tight sm:text-3xl">
+                Each dataset sits in its own silo, format and gatekeeper. The
+                result is an absence of usable data, and every actor pays for
+                the gap, over and over.
               </p>
             </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
+              data-reveal="right"
               src="/nurseForm.jpg"
               alt="A nurse completing a paper reporting form on a clipboard"
               loading="lazy"
-              className="max-h-96 w-full object-cover [clip-path:polygon(0_1.5rem,100%_0,100%_100%,0_100%)] sm:border-2 sm:border-gold-deep sm:[clip-path:none]"
+              className="h-64 w-full object-cover lg:h-full"
             />
           </div>
         </div>
