@@ -157,21 +157,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Vision and mission */}
-      <section className="bg-[#0a0a0a] text-white">
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0 lg:grid-cols-2">
-          <div>
-            <h2 className="chip text-2xl">Our vision</h2>
-            <p className="mt-6 text-xl leading-relaxed text-white">
+      {/* Vision and mission - stacked statements on white, revealed on scroll */}
+      <section>
+        <div className="mx-auto max-w-4xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
+          <div className="reveal">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-deep">
+              Our vision
+            </p>
+            <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-body sm:text-4xl">
               To become Africa&rsquo;s most trusted health intelligence
               infrastructure: the data backbone that every government,
-              corporation and health institution on the continent depends on
-              to make its most critical decisions.
+              corporation and health institution on the continent depends on to
+              make its most critical decisions.
             </p>
           </div>
-          <div>
-            <h2 className="chip text-2xl">Our mission</h2>
-            <p className="mt-6 text-xl leading-relaxed text-[#d9d9d9]">
+
+          <div aria-hidden="true" className="my-12 h-px w-full bg-line sm:my-16" />
+
+          <div className="reveal">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-deep">
+              Our mission
+            </p>
+            <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-body sm:text-4xl">
               To transform Africa&rsquo;s fragmented health data into actionable
               intelligence that empowers governments, industries and healthcare
               systems to make decisions that save lives, protect workers and
