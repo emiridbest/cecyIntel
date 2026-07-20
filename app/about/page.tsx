@@ -9,12 +9,11 @@ export const metadata: Metadata = {
 };
 
 const VALUES = [
-  ["Openness", "Public health indicators are free and open by default. Access widens outward from there, never the reverse."],
-  ["Rigour", "Every dataset is cleaned, versioned, and provenance-tracked, with a data dictionary and known-limitations notes."],
-  ["Governance", "Consent, de-identification, and audit are built into the product, not bolted on after the fact."],
-  ["Interoperability", "We map every source to common coding so datasets that never met can finally be joined."],
-  ["Equity", "Commercial access is priced so that commercial users subsidise the free public and academic tiers."],
-  ["Trust", "We do not sell personal data. Sensitive linkages are analysed only inside our governed environment."],
+  ["Integrity", "Every data point represents a life. We handle it with the rigour, honesty and respect that demands."],
+  ["Excellence", "We were trained in the best institutions. We build to the highest standards. Africa deserves nothing less."],
+  ["Mission first", "This company was named for a woman who gave everything quietly and without recognition. We carry that spirit into everything we build."],
+  ["Inclusion", "Africa's health data problem affects every community. Our solutions must serve every community, not just those who can afford premium care."],
+  ["Innovation", "The hardest problems in African health won't yield to old methods. We build new tools, and we keep making them better."],
 ];
 
 export default function AboutPage() {
@@ -79,6 +78,27 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* The Africa we are building - vision in practice */}
+      <section className="bg-[#0a0a0a] text-white">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <p data-reveal className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">
+            The Africa we are building
+          </p>
+          <h2 data-reveal className="chip text-2xl text-white sm:text-3xl">
+            Our vision, in practice
+          </h2>
+          <p data-reveal className="mt-10 text-xl font-medium leading-relaxed text-white">
+            We envision an Africa where:
+          </p>
+          <ul className="mt-6 max-w-3xl space-y-5 border-l-2 border-gold pl-6 text-lg leading-relaxed text-[#d9d9d9]">
+            <li data-reveal>no government makes a health policy decision without evidence;</li>
+            <li data-reveal>no employer manages workforce health by instinct;</li>
+            <li data-reveal>no pharmaceutical company enters an African market blind;</li>
+            <li data-reveal>no patient is failed because the system could not read its own data.</li>
+          </ul>
+        </div>
+      </section>
+
       {/* Why now */}
       <section className="light">
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1fr_1.6fr]">
@@ -120,9 +140,11 @@ export default function AboutPage() {
       <section>
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
           <p data-reveal className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
-            What drives us
+            Core values
           </p>
-          <h2 data-reveal className="chip text-2xl sm:text-3xl">Our values</h2>
+          <h2 data-reveal className="chip text-2xl sm:text-3xl">
+            The principles that govern everything we do
+          </h2>
           <dl className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {VALUES.map(([title, text], i) => (
               <div
@@ -131,10 +153,11 @@ export default function AboutPage() {
                 style={{ "--d": `${(i % 3) * 100}ms` } as CSSProperties}
                 className="rounded-2xl bg-ink-raised p-8 shadow-sm"
               >
-                <span aria-hidden="true" className="flex h-11 w-11 items-center justify-center rounded-full bg-[#6f4c10]">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
+                <span
+                  aria-hidden="true"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#6f4c10] text-sm font-bold text-white"
+                >
+                  {`0${i + 1}`}
                 </span>
                 <dt className="mt-5 text-xl font-bold text-[#0a0a0a]">{title}</dt>
                 <dd className="mt-3 text-sm leading-relaxed text-muted">{text}</dd>
