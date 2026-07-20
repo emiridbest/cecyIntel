@@ -1,6 +1,7 @@
 ﻿import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import Stats from "@/components/Stats";
+import ComplianceMarquee from "@/components/ComplianceMarquee";
 
 export const metadata: Metadata = {
   title: "About",
@@ -190,21 +191,7 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <dl className="mt-14 grid gap-6 sm:grid-cols-2">
-            {[
-              ["NDPA 2023 compliance", "We process data under the Nigeria Data Protection Act 2023 and the NDPC's implementing directions: defined lawful bases for every dataset, data-processing agreements with every source, and a named data protection officer."],
-              ["De-identification by default", "Individual-level data is de-identified before it enters any analytical environment. Direct identifiers are removed at ingestion; quasi-identifiers are assessed for re-identification risk before any release."],
-              ["Consent where consent is due", "Aggregated public statistics require no individual consent. Our future longitudinal panels are different: participation will be opt-in, with plain-language consent that participants can withdraw at any time."],
-              ["Tiered, auditable access", "Open indicators are public. Research extracts require an application stating purpose and safeguards. Sensitive linked data never leaves our controlled environment. Every access is logged."],
-              ["Local review", "Research uses of our data are expected to carry approval from a recognised Nigerian health research ethics committee, in line with the National Health Research Ethics Committee framework."],
-              ["Data stays governed", "We do not sell personal data. Commercial access is to de-identified, aggregated, or synthetic outputs. Commercial pricing subsidises the free public and academic tiers."],
-            ].map(([title, text]) => (
-              <div key={title} className="rounded-2xl bg-white p-8 shadow-sm">
-                <dt className="text-xl font-bold text-[#0a0a0a]">{title}</dt>
-                <dd className="mt-3 text-sm leading-relaxed text-muted">{text}</dd>
-              </div>
-            ))}
-          </dl>
+          <ComplianceMarquee />
         </div>
       </section>
     </>
