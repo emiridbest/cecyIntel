@@ -64,10 +64,10 @@ html {
    above does not apply to them. */
 header,
 footer {
-  --text-xs: 0.75rem; /* 12px */
-  --text-sm: 0.8125rem; /* 13px */
-  --text-base: 0.875rem; /* 14px */
-  --text-lg: 1rem; /* 16px */
+  --text-xs: 0.6875rem; /* 11px */
+  --text-sm: 0.75rem; /* 12px */
+  --text-base: 0.8125rem; /* 13px */
+  --text-lg: 0.9375rem; /* 15px */
 }
 
 body {
