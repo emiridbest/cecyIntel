@@ -13,7 +13,7 @@ export default function AboutPage() {
     <>
       <PageHeader
         title="About us"
-        image={{ src: "/doctorThink.png", alt: "A doctor in a laboratory, pausing in thought" }}
+        image={{ src: "/doctorThink.jpg", alt: "A doctor in a laboratory, pausing in thought" }}
       >
         <p>
           Built so that health decisions in Africa rest on African evidence.
@@ -117,7 +117,7 @@ export default function AboutPage() {
             <h2 className="justify-self-start"><span className="chip text-2xl">Why now</span></h2>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/labRead.png"
+              src="/labRead.jpg"
               alt="A laboratory scientist reading results from a screen"
               loading="lazy"
               className="mt-8 max-h-64 w-full object-cover [clip-path:polygon(0_1.5rem,100%_0,100%_100%,0_100%)] sm:border-2 sm:border-gold-deep sm:[clip-path:none] lg:max-h-none"
@@ -155,7 +155,7 @@ export default function AboutPage() {
               <h2 className="justify-self-start"><span className="chip text-2xl">Governance &amp; ethics</span></h2>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/consent.png"
+                src="/consent.jpg"
                 alt="A health worker explaining a consent form to a patient before signing"
                 loading="lazy"
                 className="mt-8 max-h-64 w-full object-cover [clip-path:polygon(0_1.5rem,100%_0,100%_100%,0_100%)] sm:border-2 sm:border-gold-deep sm:[clip-path:none] lg:max-h-none"

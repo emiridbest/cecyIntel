@@ -21,7 +21,7 @@ const HORIZONS = [
       "Open dashboard of national and state-level health indicators",
       "Tiered access process for researchers, government, insurers, pharma, and NGOs",
     ],
-    img: "/nurseReading.png",
+    img: "/nurseReading.jpg",
     alt: "A nurse reviewing paperwork on a ward",
   },
   {
@@ -36,7 +36,7 @@ const HORIZONS = [
       "Linked longitudinal records across facilities and payers",
       "Cohort access for approved research under ethics-committee review",
     ],
-    img: "/mumChild.png",
+    img: "/mumChild.jpg",
     alt: "A mother holding her child at a health clinic",
   },
   {
@@ -51,7 +51,7 @@ const HORIZONS = [
       "Federated queries that return only aggregate results",
       "Regional expansion under each jurisdiction's data-protection law",
     ],
-    img: "/researchGlobe.png",
+    img: "/researchGlobe.jpg",
     alt: "A globe resting on a keyboard beside a research key",
   },
 ];
@@ -62,7 +62,7 @@ export default function ApproachPage() {
       <PageHeader
         title="Our approach"
         eyebrow="Three horizons, in order"
-        image={{ src: "/researchProcess.png", alt: "A hand-drawn diagram of the research process" }}
+        image={{ src: "/researchProcess.jpg", alt: "A hand-drawn diagram of the research process" }}
       >
         <p>
           We sequence deliberately. Each horizon funds and de-risks the next.

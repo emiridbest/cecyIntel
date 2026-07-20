@@ -23,6 +23,16 @@
      the backgrounds, chips, and accents. */
   --color-muted: #262626;
 
+  /* Larger type scale - body copy reads big, no tiny text in the content.
+     Header/footer set their own smaller sizes explicitly. */
+  --text-xs: 0.9375rem;   /* 15px */
+  --text-sm: 1.0625rem;   /* 17px */
+  --text-base: 1.1875rem; /* 19px */
+  --text-lg: 1.3125rem;   /* 21px */
+  --text-xl: 1.5rem;      /* 24px */
+  --text-2xl: 1.75rem;    /* 28px */
+  --text-3xl: 2.125rem;   /* 34px */
+
   /*
    * All-sans, UK Biobank style. `font-serif` classes remain in the
    * components but now resolve to Inter too - headings differ by weight
@@ -169,18 +179,22 @@ main > *:last-child {
     animation: rise 0.7s ease-out 0.15s both;
   }
 
-  /* Scroll-driven reveals where supported; harmless no-op elsewhere. */
-  @supports (animation-timeline: view()) {
-    main section > div {
-      animation: rise both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 40%;
-    }
-
-    .reveal {
-      animation: rise both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 45%;
-    }
+  /*
+   * Scroll reveals driven by ScrollAnimations (IntersectionObserver). The
+   * hidden state only applies once <html> has `reveal-ready`, so no-JS
+   * visitors always see content. `js-reveal` is auto-added to every section
+   * wrapper; `[data-reveal]` is for finer, opt-in targets.
+   */
+  html.reveal-ready :is(.js-reveal, [data-reveal], .reveal) {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.75s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+    will-change: opacity, transform;
+  }
+  html.reveal-ready :is(.js-reveal, [data-reveal], .reveal).is-visible {
+    opacity: 1;
+    transform: none;
   }
 }

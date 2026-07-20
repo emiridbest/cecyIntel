@@ -8,35 +8,35 @@ const AUDIENCES = [
     name: "Researchers",
     kicker: "Academia & research",
     text: "Apply for tiered access to cleaned, documented, de-identified datasets, with the provenance and codebooks you need to publish.",
-    img: "/scientistMicroscope.png",
+    img: "/scientistMicroscope.jpg",
     alt: "A scientist working at a microscope",
   },
   {
     name: "Government",
     kicker: "Public sector",
     text: "See across your own programmes. We reconcile facility reporting with survey and claims data so policy decisions rest on more than one source.",
-    img: "/decisionChart.png",
+    img: "/decisionChart.jpg",
     alt: "Officials reviewing charts and figures around a table",
   },
   {
     name: "Insurers & HMOs",
     kicker: "Payers",
     text: "Price risk on Nigerian morbidity patterns rather than imported actuarial tables, and benchmark claims against national utilisation data.",
-    img: "/leansChart.png",
+    img: "/leansChart.jpg",
     alt: "A magnifying lens over a printed trend chart",
   },
   {
     name: "Pharma & life sciences",
     kicker: "Life sciences",
     text: "Understand real treatment pathways, disease burden, and site feasibility in Africa before committing to trials or market entry.",
-    img: "/pharmTab.png",
+    img: "/pharmTab.jpg",
     alt: "A gloved hand recording pharmaceutical data on a chart",
   },
   {
     name: "NGOs & development partners",
     kicker: "Development",
     text: "Target interventions and measure outcomes with the same evidence base your government counterparts use.",
-    img: "/ngo.png",
+    img: "/ngo.jpg",
     alt: "Boxes of donated medicine beside a charity sign at an aid drive",
   },
 ];
@@ -111,7 +111,7 @@ export default function HomePage() {
             </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/nurseForm.png"
+              src="/nurseForm.jpg"
               alt="A nurse completing a paper reporting form on a clipboard"
               loading="lazy"
               className="max-h-96 w-full object-cover [clip-path:polygon(0_1.5rem,100%_0,100%_100%,0_100%)] sm:border-2 sm:border-gold-deep sm:[clip-path:none]"
@@ -209,7 +209,7 @@ export default function HomePage() {
             </p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/dataAnalyst.png"
+              src="/dataAnalyst.jpg"
               alt="An analyst working with health data dashboards on screen"
               loading="lazy"
               className="max-h-56 w-full object-cover [clip-path:polygon(0_1.5rem,100%_0,100%_100%,0_100%)] sm:border-2 sm:border-gold-deep sm:[clip-path:none]"

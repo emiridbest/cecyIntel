@@ -14,7 +14,7 @@ export default function SurveyPage() {
       <PageHeader
         title="Data-access survey"
         eyebrow="Five minutes, four steps"
-        image={{ src: "/researchGlobe.png", alt: "The Cecy Intelligence gold globe of Africa with network nodes" }}
+        image={{ src: "/researchGlobe.jpg", alt: "The Cecy Intelligence gold globe of Africa with network nodes" }}
       >
         <p>
           How does your organisation use Nigerian health data? Your answers
