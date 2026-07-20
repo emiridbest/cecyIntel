@@ -165,17 +165,19 @@ export default function HomePage() {
           <div>
             <h2 className="chip text-2xl">Our vision</h2>
             <p className="mt-6 text-xl leading-relaxed text-white">
-              Health decisions that affect African lives are informed by
-              African data.
+              To become Africa&rsquo;s most trusted health intelligence
+              infrastructure: the data backbone that every government,
+              corporation and health institution on the continent depends on
+              to make its most critical decisions.
             </p>
           </div>
           <div>
             <h2 className="chip text-2xl">Our mission</h2>
-            <p className="mt-6 leading-relaxed text-[#d9d9d9]">
-              We aggregate, standardise, and govern the health data Africa
-              already produces, and we make it accessible through transparent,
-              tiered rules to the researchers, agencies, insurers, and
-              partners who need it.
+            <p className="mt-6 text-xl leading-relaxed text-[#d9d9d9]">
+              To transform Africa&rsquo;s fragmented health data into actionable
+              intelligence that empowers governments, industries and healthcare
+              systems to make decisions that save lives, protect workers and
+              build a healthier continent.
             </p>
           </div>
         </div>
