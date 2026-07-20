@@ -12,7 +12,7 @@ export default function ContactPage() {
     <>
       <PageHeader
         title="Contact us"
-        image={{ src: "/scientistPetridish.png", alt: "A scientist handling samples in petri dishes" }}
+        image={{ src: "/scientistPetridish.jpg", alt: "A scientist handling samples in petri dishes" }}
       >
         <p>
           If you need a dataset, hold data that belongs in this, or want to
@@ -57,7 +57,7 @@ export default function ContactPage() {
               </ul>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/clinExam.png"
+                src="/clinExam.jpg"
                 alt="A clinician examining a patient during a consultation"
                 loading="lazy"
                 className="mt-10 max-h-64 w-full object-cover rounded-2xl lg:max-h-none"

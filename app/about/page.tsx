@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+﻿import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import Stats from "@/components/Stats";
 
@@ -38,7 +38,7 @@ export default function AboutPage() {
           <div data-reveal="right" className="overflow-hidden rounded-[2rem] rounded-t-[6rem]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/doctorThink.png"
+              src="/doctorThink.jpg"
               alt="A doctor in a laboratory, pausing in thought"
               className="aspect-[4/5] w-full object-cover"
             />
@@ -106,7 +106,7 @@ export default function AboutPage() {
             <h2><span className="chip text-2xl">Why now</span></h2>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/labRead.png"
+              src="/labRead.jpg"
               alt="A laboratory scientist reading results from a screen"
               loading="lazy"
               className="mt-8 w-full rounded-2xl object-cover"
@@ -175,7 +175,7 @@ export default function AboutPage() {
               <h2><span className="chip text-2xl">Governance &amp; ethics</span></h2>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/consent.png"
+                src="/consent.jpg"
                 alt="A health worker explaining a consent form to a patient before signing"
                 loading="lazy"
                 className="mt-8 w-full rounded-2xl object-cover"

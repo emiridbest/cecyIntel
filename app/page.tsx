@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+﻿import type { CSSProperties } from "react";
 import Link from "next/link";
 import Stats from "@/components/Stats";
 import Hero from "@/components/Hero";
@@ -11,35 +11,35 @@ const AUDIENCES = [
     name: "Researchers",
     kicker: "Academia & research",
     text: "Apply for tiered access to cleaned, documented, de-identified datasets, with the provenance and codebooks you need to publish.",
-    img: "/scientistMicroscope.png",
+    img: "/scientistMicroscope.jpg",
     alt: "A scientist working at a microscope",
   },
   {
     name: "Government",
     kicker: "Public sector",
     text: "See across your own programmes. We reconcile facility reporting with survey and claims data so policy decisions rest on more than one source.",
-    img: "/decisionChart.png",
+    img: "/decisionChart.jpg",
     alt: "Officials reviewing charts and figures around a table",
   },
   {
     name: "Insurers & HMOs",
     kicker: "Payers",
     text: "Price risk on Nigerian morbidity patterns rather than imported actuarial tables, and benchmark claims against national utilisation data.",
-    img: "/leansChart.png",
+    img: "/leansChart.jpg",
     alt: "A magnifying lens over a printed trend chart",
   },
   {
     name: "Pharma & life sciences",
     kicker: "Life sciences",
     text: "Understand real treatment pathways, disease burden, and site feasibility in Africa before committing to trials or market entry.",
-    img: "/pharmTab.png",
+    img: "/pharmTab.jpg",
     alt: "A gloved hand recording pharmaceutical data on a chart",
   },
   {
     name: "NGOs & development partners",
     kicker: "Development",
     text: "Target interventions and measure outcomes with the same evidence base your government counterparts use.",
-    img: "/ngo.png",
+    img: "/ngo.jpg",
     alt: "Boxes of donated medicine beside a charity sign at an aid drive",
   },
 ];
@@ -82,7 +82,7 @@ export default function HomePage() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               data-reveal="right"
-              src="/nurseForm.png"
+              src="/nurseForm.jpg"
               alt="A nurse completing a paper reporting form on a clipboard"
               loading="lazy"
               className="max-h-96 w-full rounded-2xl object-cover"
@@ -138,21 +138,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Vision and mission */}
+      {/* Vision and mission - stacked statements, revealed on scroll */}
       <section className="bg-[#0a0a0a] text-white">
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-2">
-          <div data-reveal="left">
-            <h2 className="chip text-2xl text-white">Our vision</h2>
-            <p className="mt-6 text-xl leading-relaxed text-white">
+        <div className="mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-20">
+          <div data-reveal>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#f5d68a]">
+              Our vision
+            </p>
+            <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-white sm:text-4xl">
               To become Africa&rsquo;s most trusted health intelligence
               infrastructure: the data backbone that every government,
-              corporation and health institution on the continent depends on
-              to make its most critical decisions.
+              corporation and health institution on the continent depends on to
+              make its most critical decisions.
             </p>
           </div>
-          <div data-reveal="right">
-            <h2 className="chip text-2xl text-white">Our mission</h2>
-            <p className="mt-6 text-xl leading-relaxed text-[#d9d9d9]">
+
+          <div aria-hidden="true" className="my-12 h-px w-full bg-white/15 sm:my-16" />
+
+          <div data-reveal>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#f5d68a]">
+              Our mission
+            </p>
+            <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-white sm:text-4xl">
               To transform Africa&rsquo;s fragmented health data into actionable
               intelligence that empowers governments, industries and healthcare
               systems to make decisions that save lives, protect workers and
@@ -220,7 +227,7 @@ export default function HomePage() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               data-reveal="right"
-              src="/dataAnalyst.png"
+              src="/dataAnalyst.jpg"
               alt="An analyst working with health data dashboards on screen"
               loading="lazy"
               className="max-h-56 w-full object-cover rounded-2xl"

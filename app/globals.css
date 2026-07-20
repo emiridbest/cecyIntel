@@ -25,13 +25,13 @@
 
   /* Text scale nudged up ~1-2px over the defaults for readability. Changing
      these theme vars lifts every text-* utility without touching spacing. */
-  --text-xs: 0.8125rem;   /* 13px */
-  --text-sm: 0.9375rem;   /* 15px */
-  --text-base: 1.0625rem; /* 17px */
-  --text-lg: 1.1875rem;   /* 19px */
-  --text-xl: 1.3125rem;   /* 21px */
-  --text-2xl: 1.625rem;   /* 26px */
-  --text-3xl: 2rem;       /* 32px */
+  --text-xs: 0.9375rem;   /* 15px */
+  --text-sm: 1.0625rem;   /* 17px */
+  --text-base: 1.1875rem; /* 19px */
+  --text-lg: 1.3125rem;   /* 21px */
+  --text-xl: 1.5rem;      /* 24px */
+  --text-2xl: 1.75rem;    /* 28px */
+  --text-3xl: 2.125rem;   /* 34px */
 
   /*
    * All-sans, UK Biobank style. `font-serif` classes remain in the
@@ -212,7 +212,7 @@ main > *:last-child {
    * see content. Direction and stagger come from data attributes and the
    * --d delay variable set inline.
    */
-  html.reveal-ready [data-reveal] {
+  html.reveal-ready :is([data-reveal], .js-reveal, .reveal) {
     opacity: 0;
     transform: translateY(32px);
     transition:
@@ -230,7 +230,7 @@ main > *:last-child {
   html.reveal-ready [data-reveal="scale"] {
     transform: scale(0.94);
   }
-  html.reveal-ready [data-reveal].is-visible {
+  html.reveal-ready :is([data-reveal], .js-reveal, .reveal).is-visible {
     opacity: 1;
     transform: none;
   }
