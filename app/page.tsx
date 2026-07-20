@@ -48,10 +48,8 @@ export default function HomePage() {
           portion of the black background (no video). */}
       <section className="relative overflow-hidden border-b border-gold-deep bg-[#0a0a0a]">
         <div className="relative z-10 mx-auto max-w-3xl px-5 pb-64 pt-20 text-center sm:px-8 sm:pb-72 sm:pt-28">
-          <h1 className="anim-rise text-3xl leading-[1.7] sm:text-5xl sm:leading-[1.6]">
-            <span className="chip">Connecting the health data</span>
-            <br />
-            <span className="chip">Africa already produces</span>
+          <h1 className="anim-rise mx-auto max-w-3xl text-4xl font-extrabold leading-[1.1] tracking-tight text-[#f5d68a] sm:text-6xl">
+            Connecting the health data Africa already produces
           </h1>
           <p className="anim-rise-delayed mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-white">
             Nigeria already produces the health data it needs. Cecy
