@@ -15,13 +15,12 @@ export default function AboutPage() {
         image={{ src: "/doctorThink.png", alt: "A doctor in a laboratory, pausing in thought" }}
       >
         <p>
-          Built so that health decisions in  Africa rest on  African
-          evidence.
+          Built so that health decisions in Africa rest on African evidence.
         </p>
       </PageHeader>
 
       <section className="light">
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1fr_2fr]">
+        <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0 lg:grid-cols-[1fr_2fr]">
           <h2 className="justify-self-start"><span className="chip text-2xl">Mission</span></h2>
           <div className="space-y-5 leading-relaxed text-muted">
             <p>
@@ -47,8 +46,52 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* The Africa we are building - vision in practice */}
       <section>
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1fr_2fr]">
+        <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
+            The Africa we are building
+          </p>
+          <h2 className="chip text-2xl sm:text-3xl">Our vision, in practice</h2>
+          <p className="mt-10 text-xl font-medium leading-relaxed text-body">
+            We envision an Africa where:
+          </p>
+          <ul className="mt-6 max-w-3xl space-y-5 border-l-2 border-gold pl-6 text-lg leading-relaxed text-muted">
+            <li>no government makes a health policy decision without evidence;</li>
+            <li>no employer manages workforce health by instinct;</li>
+            <li>no pharmaceutical company enters an African market blind;</li>
+            <li>no patient is failed because the system could not read its own data.</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Core values */}
+      <section className="light">
+        <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
+            Core values
+          </p>
+          <h2 className="chip text-2xl sm:text-3xl">The principles that govern everything we do</h2>
+          <dl className="mt-12 grid gap-px overflow-hidden border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              ["Integrity", "Every data point represents a life. We handle it with the rigour, honesty and respect that demands."],
+              ["Excellence", "We were trained in the best institutions. We build to the highest standards. Africa deserves nothing less."],
+              ["Mission first", "This company was named for a woman who gave everything quietly and without recognition. We carry that spirit into everything we build."],
+              ["Inclusion", "Africa's health data problem affects every community. Our solutions must serve every community, not just those who can afford premium care."],
+              ["Innovation", "The hardest problems in African health won't yield to old methods. We build new tools, and we keep making them better."],
+            ].map(([name, text], i) => (
+              <div key={name} className="bg-ink-raised p-8">
+                <p className="font-serif text-sm text-gold-deep">{`0${i + 1}`}</p>
+                <dt className="mt-2 text-xl font-bold text-body">{name}</dt>
+                <dd className="mt-3 text-sm leading-relaxed text-muted">{text}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section>
+        <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0 lg:grid-cols-[1fr_2fr]">
           <div>
             <h2 className="justify-self-start"><span className="chip text-2xl">Why now</span></h2>
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -85,7 +128,7 @@ export default function AboutPage() {
       </section>
 
       <section id="governance" className="light scroll-mt-20">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+        <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
           <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
             <div>
               <h2 className="justify-self-start"><span className="chip text-2xl">Governance &amp; ethics</span></h2>
