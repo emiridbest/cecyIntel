@@ -19,10 +19,14 @@ export default function ScrollAnimations() {
     const root = document.documentElement;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Auto-target section content wrappers, skipping the first (hero).
+    // Auto-target section content wrappers, skipping the first (hero) and any
+    // section that already has its own reveal targets inside (so we don't
+    // double-animate).
     document
       .querySelectorAll<HTMLElement>("main > section:nth-of-type(n+2) > div")
-      .forEach((el) => el.classList.add("js-reveal"));
+      .forEach((el) => {
+        if (!el.querySelector("[data-reveal], .reveal")) el.classList.add("js-reveal");
+      });
 
     const targets = Array.from(
       document.querySelectorAll<HTMLElement>(".js-reveal, [data-reveal]"),
