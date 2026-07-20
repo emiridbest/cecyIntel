@@ -48,10 +48,8 @@ export default function HomePage() {
           portion of the black background (no video). */}
       <section className="relative overflow-hidden border-b border-gold-deep bg-[#0a0a0a]">
         <div className="relative z-10 mx-auto max-w-3xl px-5 pb-64 pt-20 text-center sm:px-8 sm:pb-72 sm:pt-28">
-          <h1 className="anim-rise text-3xl leading-[1.7] sm:text-5xl sm:leading-[1.6]">
-            <span className="chip">Connecting the health data</span>
-            <br />
-            <span className="chip">Africa already produces</span>
+          <h1 className="anim-rise mx-auto max-w-3xl text-4xl font-extrabold leading-[1.1] tracking-tight text-[#f5d68a] sm:text-6xl">
+            Connecting the health data Africa already produces
           </h1>
           <p className="anim-rise-delayed mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-white">
             Nigeria already produces the health data it needs. Cecy
@@ -159,21 +157,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Vision and mission */}
-      <section className="bg-[#0a0a0a] text-white">
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0 lg:grid-cols-2">
-          <div>
-            <h2 className="chip text-2xl">Our vision</h2>
-            <p className="mt-6 text-xl leading-relaxed text-white">
+      {/* Vision and mission - stacked statements on white, revealed on scroll */}
+      <section>
+        <div className="mx-auto max-w-4xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
+          <div className="reveal">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-deep">
+              Our vision
+            </p>
+            <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-body sm:text-4xl">
               To become Africa&rsquo;s most trusted health intelligence
               infrastructure: the data backbone that every government,
-              corporation and health institution on the continent depends on
-              to make its most critical decisions.
+              corporation and health institution on the continent depends on to
+              make its most critical decisions.
             </p>
           </div>
-          <div>
-            <h2 className="chip text-2xl">Our mission</h2>
-            <p className="mt-6 text-xl leading-relaxed text-[#d9d9d9]">
+
+          <div aria-hidden="true" className="my-12 h-px w-full bg-line sm:my-16" />
+
+          <div className="reveal">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-deep">
+              Our mission
+            </p>
+            <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-body sm:text-4xl">
               To transform Africa&rsquo;s fragmented health data into actionable
               intelligence that empowers governments, industries and healthcare
               systems to make decisions that save lives, protect workers and
@@ -284,14 +289,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Compliance frame */}
+      {/* Compliance - heading plus the auto-scrolling standards marquee */}
       <section>
         <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
-          <h2 className="chip text-2xl sm:text-3xl">Compliance</h2>
-          <p className="mt-6 max-w-2xl leading-relaxed text-muted">
-            We operate under the Nigeria Data Protection Act 2023 and align
-            our safeguards with international health data standards.
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
+            Built on trust
           </p>
+          <h2 className="chip text-2xl sm:text-3xl">Compliance</h2>
           <ComplianceMarquee />
         </div>
       </section>

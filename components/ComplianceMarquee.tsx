@@ -16,12 +16,17 @@ const ITEMS: Item[] = [
 
 function Card({ item }: { item: Item }) {
   return (
-    <div className="flex h-24 w-56 shrink-0 items-center justify-center gap-3 rounded-2xl border border-line bg-white px-6 shadow-sm">
+    <div className="flex h-24 w-52 shrink-0 items-center justify-center px-6">
       {item.type === "logo" ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={item.src} alt={item.alt} loading="lazy" className="max-h-14 w-auto object-contain" />
+        <img
+          src={item.src}
+          alt={item.alt}
+          loading="lazy"
+          className="max-h-16 w-auto object-contain transition-transform duration-200 hover:scale-110"
+        />
       ) : (
-        <div className="text-center">
+        <div className="text-center transition-transform duration-200 hover:scale-110">
           <p className="text-lg font-extrabold tracking-tight text-[#0a0a0a]">{item.label}</p>
           <p className="mt-1 text-[11px] leading-tight text-muted">{item.sub}</p>
         </div>

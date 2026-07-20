@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
+import ComplianceMarquee from "@/components/ComplianceMarquee";
 
 export const metadata: Metadata = {
   title: "About",
@@ -19,28 +20,32 @@ export default function AboutPage() {
         </p>
       </PageHeader>
 
+      {/* Vision + mission - sleek stacked statements, revealed on scroll */}
       <section className="light">
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0 lg:grid-cols-[1fr_2fr]">
-          <h2 className="justify-self-start"><span className="chip text-2xl">Mission</span></h2>
-          <div className="space-y-5 leading-relaxed text-muted">
-            <p>
-              Cecy Intelligence exists to make the health data Nigeria already
-              produces usable for the researchers who study its diseases, the
-              agencies that run its health system, the insurers who underwrite
-              its care, and the partners who fund it.
+        <div className="mx-auto max-w-4xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
+          <div className="reveal">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-deep">
+              Our vision
             </p>
-            <p>
-              Today, clinical and public-health decisions across the region
-              routinely rely on evidence generated elsewhere: reference ranges
-              from European cohorts, actuarial tables from other markets, trial
-              populations that don&rsquo;t reflect the patients being treated. That
-              is not because local data doesn&rsquo;t exist. It is because local
-              data is fragmented, inconsistently coded, and hard to access.
+            <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-body sm:text-4xl">
+              To become Africa&rsquo;s most trusted health intelligence
+              infrastructure: the data backbone that every government,
+              corporation and health institution on the continent depends on to
+              make its most critical decisions.
             </p>
-            <p className="text-body">
-              Our mission is to close that gap: one governed analytics layer
-              over the data that already exists, with access rules that are
-              transparent, tiered, and the same for everyone.
+          </div>
+
+          <div aria-hidden="true" className="my-12 h-px w-full bg-line sm:my-16" />
+
+          <div className="reveal">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-deep">
+              Our mission
+            </p>
+            <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-body sm:text-4xl">
+              To transform Africa&rsquo;s fragmented health data into actionable
+              intelligence that empowers governments, industries and healthcare
+              systems to make decisions that save lives, protect workers and
+              build a healthier continent.
             </p>
           </div>
         </div>
@@ -80,12 +85,28 @@ export default function AboutPage() {
               ["Inclusion", "Africa's health data problem affects every community. Our solutions must serve every community, not just those who can afford premium care."],
               ["Innovation", "The hardest problems in African health won't yield to old methods. We build new tools, and we keep making them better."],
             ].map(([name, text], i) => (
-              <div key={name} className="bg-ink-raised p-8">
-                <p className="font-serif text-sm text-gold-deep">{`0${i + 1}`}</p>
-                <dt className="mt-2 text-xl font-bold text-body">{name}</dt>
-                <dd className="mt-3 text-sm leading-relaxed text-muted">{text}</dd>
+              <div
+                key={name}
+                className="group bg-ink-raised p-8 transition-colors duration-300 hover:bg-[#6f4c10]"
+              >
+                <p className="font-serif text-sm text-gold-deep transition-colors group-hover:text-[#f5d68a]">
+                  {`0${i + 1}`}
+                </p>
+                <dt className="mt-2 text-xl font-bold text-body transition-colors group-hover:text-white">
+                  {name}
+                </dt>
+                <dd className="mt-3 text-sm leading-relaxed text-muted transition-colors group-hover:text-[#ecdfc2]">
+                  {text}
+                </dd>
               </div>
             ))}
+            {/* Sixth cell fills the grid with the brand line, in gold. */}
+            <div className="flex flex-col justify-center bg-[#6f4c10] p-8 text-white">
+              <p className="text-lg font-bold leading-snug">
+                Africa&rsquo;s most trusted health intelligence infrastructure.
+              </p>
+              <p className="mt-2 text-sm text-[#ecdfc2]">The data backbone for the continent.</p>
+            </div>
           </dl>
         </div>
       </section>
@@ -127,7 +148,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="governance" className="light scroll-mt-20">
+      <section id="governance" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
           <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
             <div>
@@ -147,21 +168,7 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <dl className="mt-14 grid gap-px overflow-hidden border border-line bg-line sm:grid-cols-2">
-            {[
-              ["NDPA 2023 compliance", "We process data under the Nigeria Data Protection Act 2023 and the NDPC's implementing directions: defined lawful bases for every dataset, data-processing agreements with every source, and a named data protection officer."],
-              ["De-identification by default", "Individual-level data is de-identified before it enters any analytical environment. Direct identifiers are removed at ingestion; quasi-identifiers are assessed for re-identification risk before any release."],
-              ["Consent where consent is due", "Aggregated public statistics require no individual consent. Our future longitudinal panels are different: participation will be opt-in, with plain-language consent that participants can withdraw at any time."],
-              ["Tiered, auditable access", "Open indicators are public. Research extracts require an application stating purpose and safeguards. Sensitive linked data never leaves our controlled environment. Every access is logged."],
-              ["Local review", "Research uses of our data are expected to carry approval from a recognised Nigerian health research ethics committee, in line with the National Health Research Ethics Committee framework."],
-              ["Data stays governed", "We do not sell personal data. Commercial access is to de-identified, aggregated, or synthetic outputs. Commercial pricing subsidises the free public and academic tiers."],
-            ].map(([title, text]) => (
-              <div key={title} className="border-t-2 border-gold bg-ink p-8">
-                <dt className="font-serif text-xl text-gold-light">{title}</dt>
-                <dd className="mt-3 text-sm leading-relaxed text-muted">{text}</dd>
-              </div>
-            ))}
-          </dl>
+          <ComplianceMarquee />
         </div>
       </section>
     </>
