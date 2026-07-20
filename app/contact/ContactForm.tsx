@@ -62,7 +62,7 @@ export default function ContactForm() {
             setData(EMPTY);
             setStatus("idle");
           }}
-          className="mt-6 border border-line px-5 py-2.5 text-sm hover:border-gold hover:text-gold-light"
+          className="mt-6 rounded-full border border-line px-5 py-2.5 text-sm hover:border-gold hover:text-gold-light"
         >
           Send another message
         </button>

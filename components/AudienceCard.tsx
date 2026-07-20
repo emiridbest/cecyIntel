@@ -1,11 +1,14 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 /*
- * Bold editorial audience card (UK Biobank news-card style): a solid colour
- * panel with kicker, big heading, description and arrow, beside a full-bleed
- * image split by a diagonal edge. The card background is the panel colour and
+ * Bold editorial card in the UK Biobank news-card style: a solid colour panel
+ * with a kicker, large heading, description and arrow, beside a full-bleed
+ * image split by a diagonal edge. The card background is the panel colour, and
  * the image sits in its own grid cell with a diagonal clip so the panel colour
- * shows through the notch. Panels alternate gold/black; the image side flips on
- * alternate rows. Stacks on mobile (image on top, no diagonal). No client JS -
- * reveal comes from the CSS `reveal` class.
+ * shows through the notch. Panels alternate gold/black and the image side
+ * flips on alternate rows. Stacks on mobile (image on top, no diagonal).
  */
 export default function AudienceCard({
   name,
@@ -22,16 +25,22 @@ export default function AudienceCard({
   alt: string;
   index: number;
 }) {
-  const flip = index % 2 === 1;
+  const flip = index % 2 === 1; // odd rows put the image on the left
   const gold = index % 2 === 0;
   const panel = gold ? "bg-[#6f4c10]" : "bg-[#0a0a0a]";
+
+  // Diagonal cut on the image edge that meets the panel (desktop only).
   const clip = flip
     ? "lg:[clip-path:polygon(0_0,100%_0,90%_100%,0_100%)]"
     : "lg:[clip-path:polygon(10%_0,100%_0,100%_100%,0_100%)]";
 
   return (
-    <div
-      className={`reveal grid overflow-hidden rounded-2xl text-white shadow-sm lg:grid-cols-2 lg:items-stretch ${panel}`}
+    <motion.div
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "0px 0px -8% 0px" }}
+      transition={{ duration: 0.6, ease: [0.2, 0.7, 0.2, 1] }}
+      className={`grid overflow-hidden rounded-2xl text-white shadow-sm lg:grid-cols-2 lg:items-stretch ${panel}`}
     >
       {/* Image cell */}
       <div className={`${flip ? "lg:order-1" : "lg:order-2"} ${clip}`}>
@@ -39,7 +48,8 @@ export default function AudienceCard({
         <img src={img} alt={alt} loading="lazy" className="h-52 w-full object-cover lg:h-full" />
       </div>
 
-      {/* Text cell. min-w-0 lets long headings wrap instead of overflowing. */}
+      {/* Text cell. min-w-0 lets it shrink so long headings wrap instead of
+          overflowing the card. */}
       <div
         className={`flex min-w-0 flex-col justify-center p-8 sm:p-12 ${
           flip ? "lg:order-2" : "lg:order-1"
@@ -54,6 +64,6 @@ export default function AudienceCard({
           </svg>
         </span>
       </div>
-    </div>
+    </motion.div>
   );
 }

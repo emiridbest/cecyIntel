@@ -1,5 +1,6 @@
-﻿import type { Metadata } from "next";
-import PageHeader from "@/components/PageHeader";
+﻿import type { CSSProperties } from "react";
+import type { Metadata } from "next";
+import Stats from "@/components/Stats";
 import ComplianceMarquee from "@/components/ComplianceMarquee";
 
 export const metadata: Metadata = {
@@ -8,160 +9,182 @@ export const metadata: Metadata = {
     "Why Cecy Intelligence exists, why now, and how we govern health data under the Nigeria Data Protection Act 2023.",
 };
 
+const VALUES = [
+  ["Integrity", "Every data point represents a life. We handle it with the rigour, honesty and respect that demands."],
+  ["Excellence", "We were trained in the best institutions. We build to the highest standards. Africa deserves nothing less."],
+  ["Mission first", "This company was named for a woman who gave everything quietly and without recognition. We carry that spirit into everything we build."],
+  ["Inclusion", "Africa's health data problem affects every community. Our solutions must serve every community, not just those who can afford premium care."],
+  ["Innovation", "The hardest problems in African health won't yield to old methods. We build new tools, and we keep making them better."],
+];
+
 export default function AboutPage() {
   return (
     <>
-      <PageHeader
-        title="About us"
-        image={{ src: "/doctorThink.png", alt: "A doctor in a laboratory, pausing in thought" }}
-      >
-        <p>
-          Built so that health decisions in Africa rest on African evidence.
-        </p>
-      </PageHeader>
-
-      {/* Vision + mission - sleek stacked statements, revealed on scroll */}
-      <section className="light">
-        <div className="mx-auto max-w-4xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
-          <div className="reveal">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-deep">
-              Our vision
+      {/* Hero - Helium About style: big heading beside an arched image */}
+      <section className="border-b border-line bg-white">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1.1fr_0.9fr]">
+          <div data-reveal="left">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-gold-deep">
+              About us
             </p>
-            <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-body sm:text-4xl">
-              To become Africa&rsquo;s most trusted health intelligence
-              infrastructure: the data backbone that every government,
-              corporation and health institution on the continent depends on to
-              make its most critical decisions.
+            <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-[#0a0a0a] sm:text-5xl">
+              We&rsquo;re on a mission to connect the health data Africa already
+              produces.
+            </h1>
+            <p className="mt-7 max-w-xl text-lg leading-relaxed text-[#404040]">
+              Health decisions that affect African lives should rest on African
+              evidence. We build the infrastructure that makes that possible.
             </p>
           </div>
+          <div data-reveal="right" className="overflow-hidden rounded-[2rem] rounded-t-[6rem]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/doctorThink.jpg"
+              alt="A doctor in a laboratory, pausing in thought"
+              className="aspect-[4/5] w-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
 
-          <div aria-hidden="true" className="my-12 h-px w-full bg-line sm:my-16" />
+      {/* Stats row */}
+      <section className="bg-[#0a0a0a] text-white">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <Stats variant="dark" />
+        </div>
+      </section>
 
-          <div className="reveal">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-deep">
-              Our mission
+      {/* Belief statement + body */}
+      <section>
+        <div className="mx-auto max-w-4xl px-5 py-16 text-center sm:px-8 sm:py-24">
+          <h2 data-reveal className="text-3xl font-extrabold leading-tight tracking-tight text-[#0a0a0a] sm:text-4xl">
+            We believe every African deserves health care shaped by data that
+            reflects them.
+          </h2>
+          <div data-reveal className="mx-auto mt-8 max-w-2xl space-y-5 text-left leading-relaxed text-muted sm:text-center">
+            <p>
+              Today, clinical and public-health decisions across the region
+              routinely rely on evidence generated elsewhere: reference ranges
+              from European cohorts, actuarial tables from other markets, trial
+              populations that don&rsquo;t reflect the patients being treated. That
+              is not because local data doesn&rsquo;t exist. It is because local
+              data is fragmented, inconsistently coded, and hard to access.
             </p>
-            <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-body sm:text-4xl">
-              To transform Africa&rsquo;s fragmented health data into actionable
-              intelligence that empowers governments, industries and healthcare
-              systems to make decisions that save lives, protect workers and
-              build a healthier continent.
+            <p>
+              Cecy Intelligence exists to close that gap: one governed analytics
+              layer over the data that already exists, with access rules that
+              are transparent, tiered, and the same for everyone.
             </p>
           </div>
         </div>
       </section>
 
       {/* The Africa we are building - vision in practice */}
-      <section>
-        <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
+      <section className="bg-[#0a0a0a] text-white">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <p data-reveal className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">
             The Africa we are building
           </p>
-          <h2 className="chip text-2xl sm:text-3xl">Our vision, in practice</h2>
-          <p className="mt-10 text-xl font-medium leading-relaxed text-body">
+          <h2 data-reveal className="chip text-2xl text-white sm:text-3xl">
+            Our vision, in practice
+          </h2>
+          <p data-reveal className="mt-10 text-xl font-medium leading-relaxed text-white">
             We envision an Africa where:
           </p>
-          <ul className="mt-6 max-w-3xl space-y-5 border-l-2 border-gold pl-6 text-lg leading-relaxed text-muted">
-            <li>no government makes a health policy decision without evidence;</li>
-            <li>no employer manages workforce health by instinct;</li>
-            <li>no pharmaceutical company enters an African market blind;</li>
-            <li>no patient is failed because the system could not read its own data.</li>
+          <ul className="mt-6 max-w-3xl space-y-5 border-l-2 border-gold pl-6 text-lg leading-relaxed text-[#d9d9d9]">
+            <li data-reveal>no government makes a health policy decision without evidence;</li>
+            <li data-reveal>no employer manages workforce health by instinct;</li>
+            <li data-reveal>no pharmaceutical company enters an African market blind;</li>
+            <li data-reveal>no patient is failed because the system could not read its own data.</li>
           </ul>
         </div>
       </section>
 
-      {/* Core values */}
+      {/* Why now - three dynamic numbered points */}
       <section className="light">
-        <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
-            Core values
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <h2 data-reveal><span className="chip text-2xl">Why now</span></h2>
+          <p data-reveal className="mt-8 max-w-2xl text-2xl font-semibold leading-snug tracking-tight text-body sm:text-3xl">
+            Three things changed at once.
           </p>
-          <h2 className="chip text-2xl sm:text-3xl">The principles that govern everything we do</h2>
-          <dl className="mt-12 grid gap-px overflow-hidden border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-8 lg:grid-cols-3 lg:gap-12">
             {[
-              ["Integrity", "Every data point represents a life. We handle it with the rigour, honesty and respect that demands."],
-              ["Excellence", "We were trained in the best institutions. We build to the highest standards. Africa deserves nothing less."],
-              ["Mission first", "This company was named for a woman who gave everything quietly and without recognition. We carry that spirit into everything we build."],
-              ["Inclusion", "Africa's health data problem affects every community. Our solutions must serve every community, not just those who can afford premium care."],
-              ["Innovation", "The hardest problems in African health won't yield to old methods. We build new tools, and we keep making them better."],
-            ].map(([name, text], i) => (
+              [
+                "The raw material matured",
+                "Routine reporting runs on DHIS2 nationwide, successive NDHS waves give comparable baselines, and health-insurance expansion is generating claims data at a scale Nigeria has never had.",
+              ],
+              [
+                "The legal foundation arrived",
+                "The Nigeria Data Protection Act 2023 created a clear statutory framework for health data: lawful bases, safeguards, and accountability.",
+              ],
+              [
+                "The tools caught up",
+                "Modern data engineering lets a focused team clean and harmonise sources that once needed a decade-long donor programme, and do it continuously.",
+              ],
+            ].map(([title, desc], i) => (
               <div
-                key={name}
-                className="group bg-ink-raised p-8 transition-colors duration-300 hover:bg-[#6f4c10]"
+                key={title}
+                data-reveal
+                style={{ "--d": `${i * 110}ms` } as CSSProperties}
+                className="border-t-2 border-gold pt-5"
               >
-                <p className="font-serif text-sm text-gold-deep transition-colors group-hover:text-[#f5d68a]">
+                <span className="text-4xl font-extrabold tracking-tight text-gold sm:text-5xl">
                   {`0${i + 1}`}
-                </p>
-                <dt className="mt-2 text-xl font-bold text-body transition-colors group-hover:text-white">
-                  {name}
-                </dt>
-                <dd className="mt-3 text-sm leading-relaxed text-muted transition-colors group-hover:text-[#ecdfc2]">
-                  {text}
-                </dd>
+                </span>
+                <h3 className="mt-3 text-xl font-bold text-body">{title}</h3>
+                <p className="mt-3 text-base leading-relaxed text-muted">{desc}</p>
               </div>
             ))}
-            {/* Sixth cell fills the grid with the brand line, in gold. */}
-            <div className="flex flex-col justify-center bg-[#6f4c10] p-8 text-white">
-              <p className="text-lg font-bold leading-snug">
-                Africa&rsquo;s most trusted health intelligence infrastructure.
-              </p>
-              <p className="mt-2 text-sm text-[#ecdfc2]">The data backbone for the continent.</p>
-            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our values */}
+      <section>
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <p data-reveal className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
+            Core values
+          </p>
+          <h2 data-reveal className="chip text-2xl sm:text-3xl">
+            The principles that govern everything we do
+          </h2>
+          <dl className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {VALUES.map(([title, text], i) => (
+              <div
+                key={title}
+                data-reveal
+                style={{ "--d": `${(i % 3) * 100}ms` } as CSSProperties}
+                className="rounded-2xl bg-ink-raised p-8 shadow-sm"
+              >
+                <span
+                  aria-hidden="true"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#6f4c10] text-sm font-bold text-white"
+                >
+                  {`0${i + 1}`}
+                </span>
+                <dt className="mt-5 text-xl font-bold text-[#0a0a0a]">{title}</dt>
+                <dd className="mt-3 text-sm leading-relaxed text-muted">{text}</dd>
+              </div>
+            ))}
           </dl>
         </div>
       </section>
 
-      <section>
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0 lg:grid-cols-[1fr_2fr]">
-          <div>
-            <h2 className="justify-self-start"><span className="chip text-2xl">Why now</span></h2>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/labRead.png"
-              alt="A laboratory scientist reading results from a screen"
-              loading="lazy"
-              className="mt-8 max-h-64 w-full object-cover [clip-path:polygon(0_1.5rem,100%_0,100%_100%,0_100%)] sm:border-2 sm:border-gold-deep sm:[clip-path:none] lg:max-h-none"
-            />
-          </div>
-          <div className="space-y-5 leading-relaxed text-muted">
-            <p>
-              Three things changed. First, the raw material matured: routine
-              facility reporting through NHMIS now runs on DHIS2 nationwide,
-              successive NDHS waves provide comparable population baselines,
-              and health-insurance expansion is generating claims data at a
-              scale Nigeria has never had.
-            </p>
-            <p>
-              Second, the legal foundation arrived. The Nigeria Data Protection
-              Act 2023 created a clear statutory framework for processing
-              personal and health data, including the lawful bases,
-              safeguards, and accountability that responsible data
-              infrastructure requires.
-            </p>
-            <p>
-              Third, the tools caught up. Modern data engineering makes it
-              feasible for a focused team to clean and harmonise sources that
-              once needed a decade-long donor programme, and to do it
-              continuously.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="governance" className="scroll-mt-20">
-        <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
+      {/* Governance & ethics */}
+      <section id="governance" className="light scroll-mt-20">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
           <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
-            <div>
-              <h2 className="justify-self-start"><span className="chip text-2xl">Governance &amp; ethics</span></h2>
+            <div data-reveal="left">
+              <h2><span className="chip text-2xl">Governance &amp; ethics</span></h2>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/consent.png"
+                src="/consent.jpg"
                 alt="A health worker explaining a consent form to a patient before signing"
                 loading="lazy"
-                className="mt-8 max-h-64 w-full object-cover [clip-path:polygon(0_1.5rem,100%_0,100%_100%,0_100%)] sm:border-2 sm:border-gold-deep sm:[clip-path:none] lg:max-h-none"
+                className="mt-8 w-full rounded-2xl object-cover"
               />
             </div>
-            <div className="space-y-5 leading-relaxed text-muted">
+            <div data-reveal="right" className="space-y-5 leading-relaxed text-muted">
               <p>
                 Health data carries obligations that most data doesn&rsquo;t. Our
                 governance posture is conservative by design.

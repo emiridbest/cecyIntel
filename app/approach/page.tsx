@@ -1,4 +1,5 @@
-﻿import type { Metadata } from "next";
+﻿import type { CSSProperties } from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 
@@ -21,7 +22,7 @@ const HORIZONS = [
       "Open dashboard of national and state-level health indicators",
       "Tiered access process for researchers, government, insurers, pharma, and NGOs",
     ],
-    img: "/nurseReading.png",
+    img: "/nurseReading.jpg",
     alt: "A nurse reviewing paperwork on a ward",
   },
   {
@@ -36,7 +37,7 @@ const HORIZONS = [
       "Linked longitudinal records across facilities and payers",
       "Cohort access for approved research under ethics-committee review",
     ],
-    img: "/mumChild.png",
+    img: "/mumChild.jpg",
     alt: "A mother holding her child at a health clinic",
   },
   {
@@ -51,7 +52,7 @@ const HORIZONS = [
       "Federated queries that return only aggregate results",
       "Regional expansion under each jurisdiction's data-protection law",
     ],
-    img: "/researchGlobe.png",
+    img: "/researchGlobe.jpg",
     alt: "A globe resting on a keyboard beside a research key",
   },
 ];
@@ -62,52 +63,70 @@ export default function ApproachPage() {
       <PageHeader
         title="Our approach"
         eyebrow="Three horizons, in order"
-        image={{ src: "/researchProcess.png", alt: "A hand-drawn diagram of the research process" }}
+        image={{ src: "/researchProcess.jpg", alt: "A hand-drawn diagram of the research process" }}
       >
         <p>
           We sequence deliberately. Each horizon funds and de-risks the next.
         </p>
       </PageHeader>
 
-      {HORIZONS.map((h, i) => (
-        <section
-          key={h.title}
-          className={`${i % 2 === 0 ? "light " : ""}`}
-        >
-          <div className="mx-auto max-w-6xl px-5 pb-16 pt-0 sm:px-8 sm:pb-20 sm:pt-0">
-            <p className="text-xs uppercase tracking-[0.25em] text-gold">{h.label}</p>
-            <h2 className="mt-4 max-w-2xl text-2xl sm:text-3xl">
-              <span className="chip">{h.title}</span>
-            </h2>
-            <div className="mt-10 grid gap-12 lg:grid-cols-[2fr_1fr]">
-              <div className="space-y-5 leading-relaxed text-muted">
-                {h.body.map((p) => (
-                  <p key={p.slice(0, 40)}>{p}</p>
-                ))}
-              </div>
-              <div>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={h.img}
-                  alt={h.alt}
-                  loading="lazy"
-                  className="mb-8 aspect-[3/2] w-full object-cover [clip-path:polygon(0_1.5rem,100%_0,100%_100%,0_100%)] sm:border-2 sm:border-gold-deep sm:[clip-path:none]"
-                />
-                <div className="border-l border-gold-deep pl-6">
-                  <h3 className="text-xs uppercase tracking-widest text-gold-deep">
-                    What this delivers
-                  </h3>
-                  <ul className="mt-4 space-y-3 text-sm leading-relaxed text-muted">
-                    {h.deliverables.map((d) => (
-                      <li key={d}>{d}</li>
+      {HORIZONS.map((h, i) => {
+        const flip = i % 2 === 1;
+        return (
+          <section key={h.title} className={i % 2 === 0 ? "light" : ""}>
+            <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+              <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+                {/* Text side */}
+                <div data-reveal={flip ? "right" : "left"} className={flip ? "lg:order-2" : ""}>
+                  <div className="flex items-baseline gap-4">
+                    <span className="text-5xl font-extrabold tracking-tight text-gold sm:text-6xl">
+                      {`0${i + 1}`}
+                    </span>
+                    <span className="text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
+                      {h.label}
+                    </span>
+                  </div>
+                  <h2 className="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-body sm:text-4xl">
+                    {h.title}
+                  </h2>
+                  <p className="mt-5 text-lg leading-relaxed text-muted">{h.body[0]}</p>
+
+                  <ul className="mt-8 space-y-3">
+                    {h.deliverables.map((d, j) => (
+                      <li
+                        key={d}
+                        data-reveal
+                        style={{ "--d": `${j * 90}ms` } as CSSProperties}
+                        className="flex items-start gap-3 text-base leading-snug text-body"
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#6f4c10]"
+                        >
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M20 6 9 17l-5-5" />
+                          </svg>
+                        </span>
+                        {d}
+                      </li>
                     ))}
                   </ul>
                 </div>
+
+                {/* Image side */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  data-reveal={flip ? "left" : "right"}
+                  src={h.img}
+                  alt={h.alt}
+                  loading="lazy"
+                  className={`aspect-[4/3] w-full rounded-3xl object-cover shadow-sm ${flip ? "lg:order-1" : ""}`}
+                />
               </div>
             </div>
-          </div>
-        </section>
-      ))}
+          </section>
+        );
+      })}
 
       <section className="bg-[#f8e5b4] text-[#171310]">
         <div className="mx-auto max-w-6xl px-5 py-20 text-center sm:px-8">
@@ -118,13 +137,13 @@ export default function ApproachPage() {
           <div className="mt-10 flex justify-center gap-4">
             <Link
               href="/survey"
-              className="bg-[#171310] px-6 py-3 text-sm font-medium text-[#f5d68a] transition-colors hover:bg-[#3a2c12]"
+              className="rounded-full bg-[#171310] px-6 py-3 text-sm font-medium text-[#f5d68a] transition-colors hover:bg-[#3a2c12]"
             >
               Take the survey
             </Link>
             <Link
               href="/contact"
-              className="border border-[#171310]/40 px-6 py-3 text-sm transition-colors hover:border-[#171310]"
+              className="rounded-full border border-[#171310]/40 px-6 py-3 text-sm transition-colors hover:border-[#171310]"
             >
               Contact us
             </Link>

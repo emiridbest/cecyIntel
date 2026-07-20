@@ -23,6 +23,16 @@
      the backgrounds, chips, and accents. */
   --color-muted: #262626;
 
+  /* Text scale nudged up ~1-2px over the defaults for readability. Changing
+     these theme vars lifts every text-* utility without touching spacing. */
+  --text-xs: 0.9375rem;   /* 15px */
+  --text-sm: 1.0625rem;   /* 17px */
+  --text-base: 1.1875rem; /* 19px */
+  --text-lg: 1.3125rem;   /* 21px */
+  --text-xl: 1.5rem;      /* 24px */
+  --text-2xl: 1.75rem;    /* 28px */
+  --text-3xl: 2.125rem;   /* 34px */
+
   /*
    * All-sans, UK Biobank style. `font-serif` classes remain in the
    * components but now resolve to Inter too - headings differ by weight
@@ -38,15 +48,26 @@
  * `.light` section without per-component styles. (Class name kept from the
  * earlier black/white scheme.)
  */
+/* Helium-style neutral band: soft gray instead of cream. */
 .light {
-  --color-ink: #faf6ea;
+  --color-ink: #f6f7f9;
   --color-ink-raised: #ffffff;
-  --color-line: #e8e0c8;
-  background-color: #faf6ea;
+  --color-line: #e3e6ea;
+  background-color: #f6f7f9;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Header and footer keep a compact type scale - the enlarged content scale
+   above does not apply to them. */
+header,
+footer {
+  --text-xs: 0.6875rem; /* 11px */
+  --text-sm: 0.75rem; /* 12px */
+  --text-base: 0.8125rem; /* 13px */
+  --text-lg: 0.9375rem; /* 15px */
 }
 
 body {
@@ -75,8 +96,9 @@ main > *:last-child {
  * #005F6F; ours is deep gold). Sections that need different heading colors
  * (gold CTA bands, footer) override with utility classes.
  */
-/* In @layer base so Tailwind utilities (e.g. text-white on dark panels) can
-   override the default heading colour instead of losing to this rule. */
+/* In @layer base so Tailwind utilities (e.g. text-white on dark sections)
+   can override the default heading colour. Unlayered rules would win over
+   utilities and force headings dark on dark backgrounds. */
 @layer base {
   h1,
   h2,
@@ -92,15 +114,18 @@ main > *:last-child {
  * box-decoration-break: clone gives each wrapped line its own box, exactly
  * like UKB's multi-line hero titles.
  */
+/*
+ * Helium branch: headings are plain bold type, not boxed chips. The class
+ * stays in the markup so the biobank branch keeps its boxed style; here it
+ * renders as a heading with a short gold underline.
+ */
 .chip {
-  display: inline;
-  background: #6f4c10;
-  color: #ffffff;
-  padding: 0.18em 0.45em;
-  font-weight: 700;
-  line-height: 1.45;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+  display: inline-block;
+  font-weight: 800;
+  line-height: 1.25;
+  padding-bottom: 0.35em;
+  background:
+    linear-gradient(#d4a03c, #d4a03c) left bottom / 3.5rem 4px no-repeat;
 }
 
 ::selection {
@@ -118,7 +143,13 @@ main > *:last-child {
 
 .marquee {
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
   mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
 
@@ -130,13 +161,12 @@ main > *:last-child {
 
 @media (prefers-reduced-motion: no-preference) {
   .marquee-track {
-    animation: marquee 22s linear infinite;
+    animation: marquee 32s linear infinite;
   }
   .marquee:hover .marquee-track {
     animation-play-state: paused;
   }
 }
-
 
 @keyframes marquee {
   from {
@@ -148,12 +178,12 @@ main > *:last-child {
   }
 }
 
-/* ---- Motion (opacity fades only) --------------------------------------- */
+/* ---- Motion ------------------------------------------------------------ */
 
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -161,26 +191,57 @@ main > *:last-child {
   }
 }
 
+/* Slow drift on the hero, so the background feels alive under the text. */
+@keyframes heroPan {
+  from {
+    transform: scale(1.08) translateX(-1.5%);
+  }
+  to {
+    transform: scale(1.08) translateX(1.5%);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .anim-rise {
-    animation: rise 0.7s ease-out both;
+    animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
   .anim-rise-delayed {
-    animation: rise 0.7s ease-out 0.15s both;
+    animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.18s both;
+  }
+  .anim-rise-delayed-2 {
+    animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.34s both;
   }
 
-  /* Scroll-driven reveals where supported; harmless no-op elsewhere. */
-  @supports (animation-timeline: view()) {
-    main section > div {
-      animation: rise both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 40%;
-    }
+  .hero-pan {
+    animation: heroPan 18s ease-in-out infinite alternate;
+  }
 
-    .reveal {
-      animation: rise both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 45%;
-    }
+  /*
+   * Scroll reveals. The hidden state only applies once the ScrollAnimations
+   * client has tagged <html> with `reveal-ready`, so no-JS visitors always
+   * see content. Direction and stagger come from data attributes and the
+   * --d delay variable set inline.
+   */
+  html.reveal-ready :is([data-reveal], .js-reveal, .reveal) {
+    opacity: 0;
+    transform: translateY(32px);
+    transition:
+      opacity 0.75s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--d, 0ms);
+    will-change: opacity, transform;
+  }
+  html.reveal-ready [data-reveal="left"] {
+    transform: translateX(-40px);
+  }
+  html.reveal-ready [data-reveal="right"] {
+    transform: translateX(40px);
+  }
+  html.reveal-ready [data-reveal="scale"] {
+    transform: scale(0.94);
+  }
+  html.reveal-ready :is([data-reveal], .js-reveal, .reveal).is-visible {
+    opacity: 1;
+    transform: none;
   }
 }

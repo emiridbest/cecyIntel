@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 
@@ -10,6 +10,7 @@ const STATS = [
   { value: 36, suffix: "", label: "States to be covered, plus the FCT" },
   { value: 500000, suffix: "+", label: "Subjects to be enrolled" },
   { value: 10, suffix: "+", label: "Targeted data sources connected" },
+  { value: 3, suffix: "", label: "Access tiers, from open to governed" },
 ];
 
 const DURATION_MS = 1600;
@@ -18,7 +19,7 @@ function format(n: number) {
   return n.toLocaleString("en-NG");
 }
 
-export default function Stats() {
+export default function Stats({ variant = "light" }: { variant?: "light" | "dark" }) {
   const ref = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
   const started = useRef(false);
@@ -51,15 +52,18 @@ export default function Stats() {
     return () => observer.disconnect();
   }, []);
 
+  const dark = variant === "dark";
   return (
-    <div ref={ref} className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+    <div ref={ref} className="grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
       {STATS.map((s) => (
-        <div key={s.label} className="text-center">
-          <p className="text-4xl font-bold text-[#171310] sm:text-5xl">
+        <div key={s.label} className="border-l-2 border-gold pl-5">
+          <p className={`text-4xl font-bold sm:text-5xl ${dark ? "text-white" : "text-[#171310]"}`}>
             {format(Math.round(s.value * progress))}
             {s.suffix}
           </p>
-          <p className="mt-3 text-sm leading-snug text-muted">{s.label}</p>
+          <p className={`mt-3 text-sm leading-snug ${dark ? "text-[#d9d9d9]" : "text-muted"}`}>
+            {s.label}
+          </p>
         </div>
       ))}
     </div>

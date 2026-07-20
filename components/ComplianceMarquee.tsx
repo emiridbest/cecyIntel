@@ -1,7 +1,7 @@
 /*
- * Auto-scrolling strip of the standards Cecy Intelligence aligns with, in the
- * style of a partner-logo slider. Two identical copies of the list sit in one
- * track so the CSS marquee loops seamlessly; hover pauses it and
+ * Auto-scrolling strip of the standards Cecy Intelligence aligns with,
+ * in the style of a partner-logo slider. Two identical copies of the list
+ * sit in one track so the CSS marquee loops seamlessly; hover pauses it and
  * prefers-reduced-motion stops it entirely (see globals.css).
  */
 
@@ -16,17 +16,12 @@ const ITEMS: Item[] = [
 
 function Card({ item }: { item: Item }) {
   return (
-    <div className="flex h-24 w-52 shrink-0 items-center justify-center px-6">
+    <div className="flex h-24 w-56 shrink-0 items-center justify-center gap-3 rounded-2xl border border-line bg-white px-6 shadow-sm">
       {item.type === "logo" ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={item.src}
-          alt={item.alt}
-          loading="lazy"
-          className="max-h-16 w-auto object-contain transition-transform duration-200 hover:scale-110"
-        />
+        <img src={item.src} alt={item.alt} loading="lazy" className="max-h-14 w-auto object-contain" />
       ) : (
-        <div className="text-center transition-transform duration-200 hover:scale-110">
+        <div className="text-center">
           <p className="text-lg font-extrabold tracking-tight text-[#0a0a0a]">{item.label}</p>
           <p className="mt-1 text-[11px] leading-tight text-muted">{item.sub}</p>
         </div>
