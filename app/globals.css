@@ -60,6 +60,16 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Header and footer keep a compact type scale - the enlarged content scale
+   above does not apply to them. */
+header,
+footer {
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.8125rem; /* 13px */
+  --text-base: 0.875rem; /* 14px */
+  --text-lg: 1rem; /* 16px */
+}
+
 body {
   background-color: var(--color-ink);
   color: var(--color-body);
