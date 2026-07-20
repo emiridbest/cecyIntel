@@ -39,8 +39,8 @@ const AUDIENCES = [
     name: "NGOs & development partners",
     kicker: "Development",
     text: "Target interventions and measure outcomes with the same evidence base your government counterparts use.",
-    img: "/healthAndSafety.png",
-    alt: "A health-and-safety puzzle piece being fitted into place",
+    img: "/ngo.png",
+    alt: "Boxes of donated medicine beside a charity sign at an aid drive",
   },
 ];
 
