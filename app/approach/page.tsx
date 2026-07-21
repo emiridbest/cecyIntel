@@ -14,7 +14,7 @@ const HORIZONS = [
     label: "Horizon one · Now",
     title: "Aggregate and analyse what already exists",
     body: [
-      "We ingest routine facility reporting (NHMIS/DHIS2), demographic and health survey waves, insurance claims, and disease registry records. Then we clean them: deduplication, facility and geography matching, diagnosis mapping, and documentation of every transformation.",
+      "We ingest routine facility reporting, demographic and health survey waves, insurance claims, and disease registry records. Then we clean them: deduplication, facility and geography matching, diagnosis mapping, and documentation of every transformation.",
       "The output is a catalogue of cleaned, versioned, joinable datasets, each with a data dictionary and a clear access tier. Public indicators are published openly. Research extracts are released through an application process. Sensitive linkages are analysed only inside our governed environment.",
     ],
     deliverables: [

@@ -284,7 +284,7 @@ export default function HomePage() {
             {[
               {
                 title: "Aggregate",
-                text: "We bring NHMIS reporting, NDHS survey waves, claims, and registry data into one place, with documented provenance for every source.",
+                text: "We bring facility reporting, population survey waves, claims, and registry data into one place, with documented provenance for every source.",
                 // database cylinder
                 icon: <path d="M12 5c4 0 7 1.1 7 2.5S16 10 12 10 5 8.9 5 7.5 8 5 12 5Zm7 4.5v3c0 1.4-3 2.5-7 2.5s-7-1.1-7-2.5v-3M19 12.5v4c0 1.4-3 2.5-7 2.5s-7-1.1-7-2.5v-4" />,
               },

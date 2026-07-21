@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s - Cecy Intelligence",
   },
   description:
-    "Cecy Intelligence aggregates, cleans, and opens up NHMIS facility reports, demographic health surveys, insurance claims, and disease registries through one tiered access analytics layer.",
+    "Cecy Intelligence aggregates, cleans, and opens up facility reports, demographic health surveys, insurance claims, and disease registries through one tiered access analytics layer.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
