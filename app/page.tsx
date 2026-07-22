@@ -17,7 +17,7 @@ const AUDIENCES = [
   {
     name: "Government",
     kicker: "Public sector",
-    text: "See across your own programmes. We reconcile facility reporting with survey and claims data so policy decisions rest on more than one source.",
+    text: "See across your own programmes. We reconcile facility reporting with survey and claims data so policy decisions rest on multiple sources.",
     img: "/decisionChart.jpg",
     alt: "Officials reviewing charts and figures around a table",
   },
@@ -57,9 +57,9 @@ export default function HomePage() {
             The problem
           </p>
           <h2 data-reveal className="chip text-2xl sm:text-3xl">The data gap</h2>
-          <p data-reveal className="mt-8 max-w-3xl text-2xl font-semibold leading-snug tracking-tight text-body sm:text-4xl">
-            Nigeria collects mountains of health data every day.{" "}
-            <span className="text-gold">Almost none of it connects.</span>
+          <p data-reveal className="mt-8 max-w-2xl text-xl leading-snug tracking-tight text-body sm:text-4xl">
+            Nigeria collects mountains of health data every day,{" "}
+            <span className="text-gold">most of which is not integrated.</span>
           </p>
 
           {/* The silos - each slides in on a stagger */}
@@ -120,10 +120,10 @@ export default function HomePage() {
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">
                 The consequence
               </p>
-              <p className="mt-4 text-2xl font-semibold leading-snug tracking-tight sm:text-3xl">
-                Each dataset sits in its own silo, format and gatekeeper. The
-                result is an absence of usable data, and every actor pays for
-                the gap, over and over.
+              <p className="mt-4 text-xl leading-snug tracking-tight sm:text-3xl">
+                Each dataset sits in its own silo, isolated and restricted.
+                The result is an absence of usable data, and every actor pays
+                for the gap, over and over.
               </p>
             </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -189,10 +189,10 @@ export default function HomePage() {
       <section className="bg-[#0a0a0a] text-white">
         <div className="mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-20">
           <div data-reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#f5d68a]">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">
               Our vision
             </p>
-            <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-white sm:text-4xl">
+            <p className="mt-5 text-xl  leading-snug tracking-tight text-white sm:text-4xl">
               To become Africa&rsquo;s most trusted health intelligence
               infrastructure: the data backbone that every government,
               corporation and health institution on the continent depends on to
@@ -203,10 +203,10 @@ export default function HomePage() {
           <div aria-hidden="true" className="my-12 h-px w-full bg-white/15 sm:my-16" />
 
           <div data-reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#f5d68a]">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">
               Our mission
             </p>
-            <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-white sm:text-4xl">
+            <p className="mt-5 text-xl leading-snug tracking-tight text-white sm:text-4xl">
               To transform Africa&rsquo;s fragmented health data into actionable
               intelligence that empowers governments, industries and healthcare
               systems to make decisions that save lives, protect workers and
@@ -229,8 +229,7 @@ export default function HomePage() {
               with just over a sixth of its people, yet the data that could
               guide the response sits in disconnected silos. We start in
               Nigeria and its 36 states, then extend the same governed model
-              across the continent, country by country, under each
-              jurisdiction&rsquo;s own data-protection law.
+              across the continent harmoniously and securely.
             </p>
           </div>
           <div data-reveal="right" className="mx-auto w-full max-w-md">
@@ -345,7 +344,7 @@ export default function HomePage() {
             The intelligence layer
           </p>
           <h2 data-reveal className="chip text-2xl text-white sm:text-3xl">From data to decisions</h2>
-          <p data-reveal className="mt-8 max-w-3xl text-2xl font-semibold leading-snug tracking-tight sm:text-4xl">
+          <p data-reveal className="mt-8 max-w-3xl text-2xl  leading-snug tracking-tight sm:text-4xl">
             Clean, connected data is the fuel modern AI needs.{" "}
             <span className="text-[#f5d68a]">We build the models on top of it</span>, tuned to
             African populations, not borrowed from elsewhere.
@@ -355,7 +354,7 @@ export default function HomePage() {
             {[
               {
                 title: "Risk & demand models",
-                text: "Forecast disease burden, utilisation and cost from local patterns, not imported actuarial tables.",
+                text: "Forecast disease burden, utilisation and cost from local patterns.",
                 icon: <path d="M4 19h16M4 19V5m0 14 4-5 3 3 5-7 4 4" />,
               },
               {

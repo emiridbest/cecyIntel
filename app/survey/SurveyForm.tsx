@@ -41,6 +41,11 @@ export default function SurveyForm() {
   const [serverError, setServerError] = useState("");
   const headingRef = useRef<HTMLHeadingElement>(null);
 
+  // Consent gate: the survey only appears after the respondent has read and
+  // agreed to how their answers will be used.
+  const [consentChecked, setConsentChecked] = useState(false);
+  const [consented, setConsented] = useState(false);
+
   const isLast = step === STEP_TITLES.length - 1;
 
   const set = <K extends keyof SurveyPayload>(key: K) => (value: SurveyPayload[K]) => {
@@ -94,13 +99,67 @@ export default function SurveyForm() {
 
   if (status === "success") {
     return (
-      <div role="status" className="border border-gold-deep p-8">
-        <h2 className="font-serif text-2xl text-gold-light">Response recorded. Thank you.</h2>
+      <div role="status" className="rounded-2xl border border-gold-deep p-8">
+        <h2 className="text-2xl text-body">Response recorded. Thank you.</h2>
         <p className="mt-4 leading-relaxed text-muted">
           Your answers are in. When pilot access opens for{" "}
           {data.organisation.trim()}&rsquo;s sector, we&rsquo;ll write to{" "}
           {data.contactEmail.trim()} first.
         </p>
+      </div>
+    );
+  }
+
+  // Consent step, shown before any survey question.
+  if (!consented) {
+    return (
+      <div className="rounded-2xl border border-line bg-ink-raised p-8 sm:p-10">
+        <p className="font-mono text-xs uppercase tracking-[0.15em] text-gold-deep">
+          Before you begin
+        </p>
+        <h2 className="mt-3 text-2xl text-body">How your responses are used</h2>
+        <ul className="mt-6 space-y-3 leading-relaxed text-muted">
+          <li className="flex gap-3">
+            <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+            We collect your organisation&rsquo;s name, your name and work email,
+            and your answers to the survey questions.
+          </li>
+          <li className="flex gap-3">
+            <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+            Responses are stored securely and used to decide which datasets we
+            prioritise and how access tiers are designed. Findings are reported
+            only in aggregate.
+          </li>
+          <li className="flex gap-3">
+            <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+            We never publish anything that identifies your organisation, and we
+            do not share your contact details with third parties.
+          </li>
+          <li className="flex gap-3">
+            <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+            You can withdraw your response at any time by writing to cecyintelligence@afrihealthiq.com.
+          </li>
+        </ul>
+
+        <label className="mt-8 flex cursor-pointer items-start gap-3 text-body">
+          <input
+            type="checkbox"
+            checked={consentChecked}
+            onChange={(e) => setConsentChecked(e.target.checked)}
+            className="mt-1 h-4 w-4 accent-[#8a5f16]"
+          />
+          I have read and understood the information above and voluntarily
+          consent to participate in this survey.
+        </label>
+
+        <button
+          type="button"
+          disabled={!consentChecked}
+          onClick={() => setConsented(true)}
+          className="mt-8 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-gold-light disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          Agree and start the survey
+        </button>
       </div>
     );
   }
@@ -125,10 +184,10 @@ export default function SurveyForm() {
       <h2
         ref={headingRef}
         tabIndex={-1}
-        className="mb-8 font-serif text-2xl outline-none"
+        className="mb-8 text-2xl outline-none"
       >
-        <span className="mr-3 text-gold-deep">
-          {step + 1}/{STEP_TITLES.length}
+        <span className="mr-3 font-mono text-base text-gold-deep">
+          {`[${step + 1}/${STEP_TITLES.length}]`}
         </span>
         {STEP_TITLES[step]}
       </h2>

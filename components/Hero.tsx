@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -32,15 +32,15 @@ export default function Hero() {
             variants={item}
             className="mx-auto max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight text-[#0a0a0a] sm:text-6xl"
           >
-            Connecting the health data Africa already produces
+            Connecting the health data Africa continually produces
           </motion.h1>
           <motion.p
             variants={item}
-            className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-[#404040]"
+            className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-[#5c5c5c] sm:text-sm"
           >
             We aggregate, clean, and connect facility reporting, health
-            surveys, insurance claims, and disease registries into one
-            governed, tiered-access analytics layer.
+            surveys, insurance claims, and disease registries into
+              one governed analytics layer with tiered access.
           </motion.p>
           <motion.div variants={item} className="mt-9 flex flex-wrap justify-center gap-4">
             <motion.div whileHover={reduce ? undefined : { scale: 1.04 }} whileTap={{ scale: 0.97 }}>

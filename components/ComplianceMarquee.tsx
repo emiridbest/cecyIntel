@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Auto-scrolling strip of the standards Cecy Intelligence aligns with,
  * in the style of a partner-logo slider. Two identical copies of the list
  * sit in one track so the CSS marquee loops seamlessly; hover pauses it and

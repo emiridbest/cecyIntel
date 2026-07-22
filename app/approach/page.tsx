@@ -78,26 +78,31 @@ export default function ApproachPage() {
               <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
                 {/* Text side */}
                 <div data-reveal={flip ? "right" : "left"} className={flip ? "lg:order-2" : ""}>
-                  <div className="flex items-baseline gap-4">
-                    <span className="text-5xl font-extrabold tracking-tight text-gold sm:text-6xl">
-                      {`0${i + 1}`}
-                    </span>
-                    <span className="text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
-                      {h.label}
-                    </span>
-                  </div>
-                  <h2 className="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-body sm:text-4xl">
+                  <p className="font-mono text-xs uppercase tracking-[0.15em] text-gold-deep">
+                    {`[0${i + 1}]`} {h.label}
+                  </p>
+                  <h2 className="mt-5 text-2xl font-bold leading-tight tracking-tight text-body sm:text-3xl">
                     {h.title}
                   </h2>
-                  <p className="mt-5 text-lg leading-relaxed text-muted">{h.body[0]}</p>
+                  {/* Standfirst: the first sentence carries the point, bold
+                      and dark; the rest of the paragraph stays quiet. */}
+                  <p className="mt-5 text-lg font-semibold leading-snug text-body">
+                    {h.body[0].split(". ")[0]}.
+                  </p>
+                  <p className="mt-3 max-w-prose text-base leading-relaxed text-muted">
+                    {h.body[0].split(". ").slice(1).join(". ")}
+                  </p>
 
-                  <ul className="mt-8 space-y-3">
+                  <p className="mt-8 font-mono text-xs uppercase tracking-[0.15em] text-gold-deep">
+                    What this delivers
+                  </p>
+                  <ul className="mt-4 space-y-3">
                     {h.deliverables.map((d, j) => (
                       <li
                         key={d}
                         data-reveal
                         style={{ "--d": `${j * 90}ms` } as CSSProperties}
-                        className="flex items-start gap-3 text-base leading-snug text-body"
+                        className="flex items-start gap-3 text-sm leading-snug text-body sm:text-base"
                       >
                         <span
                           aria-hidden="true"
@@ -130,7 +135,7 @@ export default function ApproachPage() {
 
       <section className="bg-[#f8e5b4] text-[#171310]">
         <div className="mx-auto max-w-6xl px-5 py-20 text-center sm:px-8">
-          <h2 className="mx-auto max-w-2xl font-serif text-3xl leading-snug">
+          <h2 className="mx-auto max-w-2xl text-2xl leading-snug sm:text-3xl">
             Horizon one is underway. If your organisation needs Nigerian health
             data, help us prioritise.
           </h2>

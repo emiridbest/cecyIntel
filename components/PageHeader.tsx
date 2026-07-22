@@ -66,11 +66,11 @@ export default function PageHeader(props: {
         </div>
         <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
           {props.eyebrow && (
-            <p className="mb-5 text-xs uppercase tracking-[0.25em] text-gold">{props.eyebrow}</p>
+            <p className="font-mono mb-5 text-xs uppercase tracking-[0.25em] text-gold">{props.eyebrow}</p>
           )}
           <h1 className="chip max-w-xl text-3xl sm:text-5xl">{props.title}</h1>
           {props.children && (
-            <div className="mt-8 max-w-xl leading-relaxed text-muted">{props.children}</div>
+            <div className="font-mono mt-8 max-w-xl leading-relaxed text-muted">{props.children}</div>
           )}
           {/* On small screens the angled side panel is hidden; instead the
               photo runs full-bleed below the text with a diagonal top edge,
