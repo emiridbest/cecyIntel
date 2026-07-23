@@ -6,6 +6,7 @@ import MotionCard from "@/components/MotionCard";
 import AudienceCard from "@/components/AudienceCard";
 import ComplianceMarquee from "@/components/ComplianceMarquee";
 
+
 const AUDIENCES = [
   {
     name: "Researchers",
@@ -63,55 +64,64 @@ export default function HomePage() {
           </p>
 
           {/* The silos - each slides in on a stagger */}
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                name: "Facility reporting",
-                desc: "Tens of thousands of facilities report into NHMIS every month.",
-                icon: <path d="M4 21V8l8-5 8 5v13M9 21v-6h6v6M10 9h4M10 12h4" />,
-              },
-              {
-                name: "Health surveys",
-                desc: "The NDHS interviews households across all thirty-six states.",
-                icon: <path d="M17 20a5 5 0 0 0-10 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />,
-              },
-              {
-                name: "Insurance claims",
-                desc: "Insurers and HMOs process claims every single day.",
-                icon: <path d="M6 3h9l3 3v15l-3-2-3 2-3-2-3 2V3ZM9 8h6M9 12h6M9 16h4" />,
-              },
-              {
-                name: "Disease registries",
-                desc: "Cancer, sickle cell, and infectious disease, each tracked apart.",
-                icon: <path d="M9 4h6v2h3v14H6V6h3V4ZM12 10v6M9 13h6" />,
-              },
-            ].map((s, i) => (
-              <MotionCard
-                key={s.name}
-                delay={i * 0.1}
-                className="rounded-2xl bg-white p-6 shadow-sm"
-              >
-                <span
-                  aria-hidden="true"
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-[#6f4c10]"
+          <div className="mt-12">
+            <dl className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  name: "Facility reporting",
+                  desc: "Tens of thousands of facilities report into NHMIS every month.",
+                  icon: <path d="M4 21V8l8-5 8 5v13M9 21v-6h6v6M10 9h4M10 12h4" />,
+                },
+                {
+                  name: "Health surveys",
+                  desc: "The NDHS interviews households across all thirty-six states.",
+                  icon: <path d="M17 20a5 5 0 0 0-10 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />,
+                },
+                {
+                  name: "Insurance claims",
+                  desc: "Insurers and HMOs process claims every single day.",
+                  icon: <path d="M6 3h9l3 3v15l-3-2-3 2-3-2-3 2V3ZM9 8h6M9 12h6M9 16h4" />,
+                },
+                {
+                  name: "Disease registries",
+                  desc: "Cancer, sickle cell, and infectious disease are each maintained separately.",
+                  icon: <path d="M9 4h6v2h3v14H6V6h3V4ZM12 10v6M9 13h6" />,
+                },
+              ].map((s, i) => (
+                <MotionCard
+                  key={s.name}
+                  delay={i * 0.1}
+                  className="group bg-white p-8 transition-colors hover:bg-[#fcfaf4]"
                 >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#fff"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    {s.icon}
-                  </svg>
-                </span>
-                <h3 className="mt-4 text-lg font-bold text-body">{s.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{s.desc}</p>
-              </MotionCard>
-            ))}
+                  <span className="font-mono text-xs text-[#8B6B21]">
+                    {`[0${i + 1}]`}
+                  </span>
+
+                  <div className="mt-6 flex h-12 w-12 items-center justify-center rounded-full border border-[#e8dcc3]">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#8B6B21"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      {s.icon}
+                    </svg>
+                  </div>
+
+                  <dt className="mt-6 text-xl font-bold text-[#0a0a0a]">
+                    {s.name}
+                  </dt>
+
+                  <dd className="mt-3 text-sm leading-relaxed text-muted">
+                    {s.desc}
+                  </dd>
+                </MotionCard>
+              ))}
+            </dl>
           </div>
 
           {/* The consequence - black callout with the image, split */}
@@ -120,7 +130,7 @@ export default function HomePage() {
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">
                 The consequence
               </p>
-              <p className="mt-4 text-xl leading-snug tracking-tight sm:text-3xl">
+              <p className="mt-4 text-xl leading-snug tracking-tight sm:text-2xl">
                 Each dataset sits in its own silo, isolated and restricted.
                 The result is an absence of usable data, and every actor pays
                 for the gap, over and over.
@@ -192,7 +202,7 @@ export default function HomePage() {
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">
               Our vision
             </p>
-            <p className="mt-5 text-xl  leading-snug tracking-tight text-white sm:text-4xl">
+            <p className="mt-5 text-xl  leading-snug tracking-tight text-white sm:text-2xl">
               To become Africa&rsquo;s most trusted health intelligence
               infrastructure: the data backbone that every government,
               corporation and health institution on the continent depends on to
@@ -206,7 +216,7 @@ export default function HomePage() {
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">
               Our mission
             </p>
-            <p className="mt-5 text-xl leading-snug tracking-tight text-white sm:text-4xl">
+            <p className="mt-5 text-xl leading-snug tracking-tight text-white sm:text-2xl">
               To transform Africa&rsquo;s fragmented health data into actionable
               intelligence that empowers governments, industries and healthcare
               systems to make decisions that save lives, protect workers and
@@ -223,7 +233,7 @@ export default function HomePage() {
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">
               One continent
             </p>
-            <h2 className="chip text-2xl text-white sm:text-3xl">Built for Africa&rsquo;s scale</h2>
+            <h2 className="chip text-2xl text-white sm:text-2xl">Built for Africa&rsquo;s scale</h2>
             <p className="mt-6 leading-relaxed text-[#d9d9d9]">
               Africa carries about a quarter of the world&rsquo;s disease burden
               with just over a sixth of its people, yet the data that could
@@ -279,7 +289,9 @@ export default function HomePage() {
               className="max-h-56 w-full object-cover rounded-2xl"
             />
           </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+       </div>
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <dl className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 title: "Aggregate",
@@ -299,42 +311,49 @@ export default function HomePage() {
                 // three stacked tiers
                 icon: <path d="M12 4 4 8l8 4 8-4-8-4ZM4 12l8 4 8-4M4 16l8 4 8-4" />,
               },
-            ].map((step, i) => (
+            ].map((s, i) => (
               <MotionCard
-                key={step.title}
-                delay={i * 0.11}
-                className="rounded-2xl bg-ink-raised p-8 shadow-sm"
+                key={s.title}
+                delay={i * 0.1}
+                className="group bg-white p-8 transition-colors hover:bg-[#fcfaf4]"
               >
-                <span
-                  aria-hidden="true"
-                  className="flex h-14 w-14 items-center justify-center rounded-full bg-[#6f4c10]"
-                >
+                <span className="font-mono text-xs text-[#8B6B21]">
+                  {`[0${i + 1}]`}
+                </span>
+
+                <div className="mt-6 flex h-12 w-12 items-center justify-center rounded-full border border-[#e8dcc3]">
                   <svg
-                    width="28"
-                    height="28"
+                    width="24"
+                    height="24"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#ffffff"
+                    stroke="#8B6B21"
                     strokeWidth="1.6"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   >
-                    {step.icon}
+                    {s.icon}
                   </svg>
-                </span>
-                <h3 className="mt-5 text-2xl">{step.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-muted">{step.text}</p>
+                </div>
+
+                <dt className="mt-6 text-xl font-bold text-[#0a0a0a]">
+                  {s.title}
+                </dt>
+
+                <dd className="mt-3 text-sm leading-relaxed text-muted">
+                  {s.text}
+                </dd>
               </MotionCard>
             ))}
-          </div>
-          <p className="mt-8 text-sm text-muted">
-            The full roadmap is on the{" "}
-            <Link href="/approach" className="text-gold hover:text-gold-light">
-              Approach page
-            </Link>
-            .
-          </p>
-        </div>
+          </dl>
+        <p className="mt-8 text-sm text-muted">
+          The full roadmap is on the{" "}
+          <Link href="/approach" className="text-gold hover:text-gold-light">
+            Approach page
+          </Link>
+          .
+        </p>
+                </div>
       </section>
 
       {/* The intelligence layer - models and AI on top of the data */}
@@ -343,15 +362,16 @@ export default function HomePage() {
           <p data-reveal className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">
             The intelligence layer
           </p>
-          <h2 data-reveal className="chip text-2xl text-white sm:text-3xl">From data to decisions</h2>
-          <p data-reveal className="mt-8 max-w-3xl text-2xl  leading-snug tracking-tight sm:text-4xl">
+          <h2 data-reveal className="chip text-1xl text-white sm:text-2xl">From data to decisions</h2>
+          <p data-reveal className="mt-8 max-w-3xl text-2xl  leading-snug tracking-tight sm:text-2xl">
             Clean, connected data is the fuel modern AI needs.{" "}
             <span className="text-[#f5d68a]">We build the models on top of it</span>, tuned to
             African populations, not borrowed from elsewhere.
           </p>
+          </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <dl className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">            {[
               {
                 title: "Risk & demand models",
                 text: "Forecast disease burden, utilisation and cost from local patterns.",
@@ -372,25 +392,41 @@ export default function HomePage() {
                 text: "Models are trained on de-identified data, documented and validated, never a black box over personal records.",
                 icon: <path d="M12 3 4 6v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V6l-8-3ZM9 12l2 2 4-4" />,
               },
-            ].map((c, i) => (
+                  ].map((s, i) => (
               <MotionCard
-                key={c.title}
-                delay={i * 0.09}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] p-6"
+                key={s.title}
+                delay={i * 0.1}
+                className="group bg-white p-8 transition-colors hover:bg-[#fcfaf4]"
               >
-                <span
-                  aria-hidden="true"
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-[#6f4c10]"
-                >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-                    {c.icon}
-                  </svg>
+                <span className="font-mono text-xs text-[#8B6B21]">
+                  {`[0${i + 1}]`}
                 </span>
-                <h3 className="mt-4 text-lg font-bold text-white">{c.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#b8b8b8]">{c.text}</p>
+
+                <div className="mt-6 flex h-12 w-12 items-center justify-center rounded-full border border-[#e8dcc3]">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#8B6B21"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    {s.icon}
+                  </svg>
+                </div>
+
+                <dt className="mt-6 text-xl font-bold text-[#0a0a0a]">
+                  {s.title}
+                </dt>
+
+                <dd className="mt-3 text-sm leading-relaxed text-muted">
+                  {s.text}
+                </dd>
               </MotionCard>
             ))}
-          </div>
+          </dl>
         </div>
       </section>
 
