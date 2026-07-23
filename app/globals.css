@@ -23,15 +23,23 @@
      the backgrounds, chips, and accents. */
   --color-muted: #262626;
 
-  /* Text scale nudged up ~1-2px over the defaults for readability. Changing
-     these theme vars lifts every text-* utility without touching spacing. */
-  --text-xs: 0.9375rem;   /* 15px */
-  --text-sm: 1.0625rem;   /* 17px */
-  --text-base: 1.1875rem; /* 19px */
-  --text-lg: 1.3125rem;   /* 21px */
-  --text-xl: 1.5rem;      /* 24px */
-  --text-2xl: 1.75rem;    /* 28px */
-  --text-3xl: 2.125rem;   /* 34px */
+  /*
+   * One continuous type scale. Every step must be defined: overriding only
+   * part of it leaves the untouched steps at Tailwind's defaults and the
+   * jumps collapse (3xl and 4xl end up ~2px apart). Roughly a 1.25 ratio at
+   * the top so heading levels stay clearly distinct, with generous body
+   * sizes underneath.
+   */
+  --text-xs: 0.875rem;  /* 14px - eyebrows, labels, fine print */
+  --text-sm: 0.9375rem; /* 15px - secondary copy */
+  --text-base: 1.0625rem; /* 17px - body */
+  --text-lg: 1.1875rem; /* 19px - lead body */
+  --text-xl: 1.375rem;  /* 22px */
+  --text-2xl: 1.75rem;  /* 28px - card + section headings */
+  --text-3xl: 2rem;     /* 32px - section headings */
+  --text-4xl: 2.125rem; /* 34px - big statements (default 36) */
+  --text-5xl: 2.5rem;   /* 40px - display (default 48) */
+  --text-6xl: 3rem;     /* 48px - hero display (default 60) */
 
   /*
    * All-sans, UK Biobank style. `font-serif` classes remain in the
@@ -40,6 +48,7 @@
    */
   --font-serif: var(--font-inter), system-ui, sans-serif;
   --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jbmono), ui-monospace, monospace;
 }
 
 /*
@@ -100,10 +109,25 @@ main > *:last-child {
    can override the default heading colour. Unlayered rules would win over
    utilities and force headings dark on dark backgrounds. */
 @layer base {
+  /*
+   * One weight per heading level so the hierarchy stays consistent:
+   * h1 display = 800, section/card headings = 700. Components should not
+   * add their own font-weight to headings.
+   */
   h1,
   h2,
   h3 {
     color: #171310;
+    font-family: var(--font-sora), var(--font-inter), system-ui, sans-serif;
+  }
+
+  h1 {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  h2,
+  h3 {
     font-weight: 700;
     letter-spacing: -0.01em;
   }
@@ -121,7 +145,7 @@ main > *:last-child {
  */
 .chip {
   display: inline-block;
-  font-weight: 800;
+  font-weight: 700; /* matches the h2/h3 base weight */
   line-height: 1.25;
   padding-bottom: 0.35em;
   background:

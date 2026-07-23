@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 
@@ -55,8 +55,8 @@ export default function AudienceCard({
           flip ? "lg:order-2" : "lg:order-1"
         }`}
       >
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">{kicker}</p>
-        <h3 className="mt-3 text-2xl font-extrabold leading-tight text-white sm:text-3xl">{name}</h3>
+        <p className="font-mono text-xs uppercase tracking-[0.15em] text-[#f5d68a]">{kicker}</p>
+        <h3 className="mt-3 text-2xl font-bold leading-tight text-white sm:text-3xl">{name}</h3>
         <p className="mt-4 max-w-md leading-relaxed text-[#e6e0d0]">{text}</p>
         <span aria-hidden="true" className="mt-6 inline-flex text-[#f5d68a]">
           <svg width="26" height="16" viewBox="0 0 26 16" fill="none" stroke="currentColor" strokeWidth="2.5">

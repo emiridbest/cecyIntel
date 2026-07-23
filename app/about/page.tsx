@@ -24,14 +24,14 @@ export default function AboutPage() {
       <section className="border-b border-line bg-white">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1.1fr_0.9fr]">
           <div data-reveal="left">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-gold-deep">
+            <p className="mb-5 font-mono text-xs uppercase tracking-[0.15em] text-gold-deep">
               About us
             </p>
-            <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-[#0a0a0a] sm:text-5xl">
+            <h1 className="text-3xl font-bold leading-[1.1] tracking-tight text-[#0a0a0a] sm:text-5xl">
               We&rsquo;re on a mission to connect the health data Africa already
               produces.
             </h1>
-            <p className="mt-7 max-w-xl text-lg leading-relaxed text-[#404040]">
+            <p className="mt-7 max-w-xl text-sm leading-relaxed text-[#404040]">
               Health decisions that affect African lives should rest on African
               evidence. We build the infrastructure that makes that possible.
             </p>
@@ -57,7 +57,7 @@ export default function AboutPage() {
       {/* Belief statement + body */}
       <section>
         <div className="mx-auto max-w-4xl px-5 py-16 text-center sm:px-8 sm:py-24">
-          <h2 data-reveal className="text-3xl font-extrabold leading-tight tracking-tight text-[#0a0a0a] sm:text-4xl">
+          <h2 data-reveal className="text-2xl font-bold leading-tight tracking-tight text-[#0a0a0a] sm:text-3xl">
             We believe every African deserves health care shaped by data that
             reflects them.
           </h2>
@@ -79,19 +79,50 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Vision and mission - stacked statements */}
+      <section className="light">
+        <div className="mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-20">
+          <div data-reveal>
+            <p className="font-mono text-xs uppercase tracking-[0.15em] text-gold-deep">
+              Our vision
+            </p>
+            <p className="mt-5 text-xl font-medium leading-snug tracking-tight text-body sm:text-2xl">
+              To become Africa&rsquo;s most trusted health intelligence
+              infrastructure: the data backbone that every government,
+              corporation and health institution on the continent depends on to
+              make its most critical decisions.
+            </p>
+          </div>
+
+          <div aria-hidden="true" className="my-10 h-px w-full bg-line sm:my-12" />
+
+          <div data-reveal>
+            <p className="font-mono text-xs uppercase tracking-[0.15em] text-gold-deep">
+              Our mission
+            </p>
+            <p className="mt-5 text-xl font-medium leading-snug tracking-tight text-body sm:text-2xl">
+              To transform Africa&rsquo;s fragmented health data into actionable
+              intelligence that empowers governments, industries and healthcare
+              systems to make decisions that save lives, protect workers and
+              build a healthier continent.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* The Africa we are building - vision in practice */}
       <section className="bg-[#0a0a0a] text-white">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <p data-reveal className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-[#f5d68a]">
+          <p data-reveal className="mb-3 font-mono text-xs uppercase tracking-[0.15em] text-[#f5d68a]">
             The Africa we are building
           </p>
           <h2 data-reveal className="chip text-2xl text-white sm:text-3xl">
             Our vision, in practice
           </h2>
-          <p data-reveal className="mt-10 text-xl font-medium leading-relaxed text-white">
+          <p data-reveal className="mt-10 text-xl font-semibold leading-relaxed text-white">
             We envision an Africa where:
           </p>
-          <ul className="mt-6 max-w-3xl space-y-5 border-l-2 border-gold pl-6 text-lg leading-relaxed text-[#d9d9d9]">
+          <ul className="mt-6 max-w-3xl space-y-5 border-l-2 border-gold pl-6 text-sm leading-relaxed text-[#d9d9d9]">
             <li data-reveal>no government makes a health policy decision without evidence;</li>
             <li data-reveal>no employer manages workforce health by instinct;</li>
             <li data-reveal>no pharmaceutical company enters an African market blind;</li>
@@ -104,9 +135,6 @@ export default function AboutPage() {
       <section className="light">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
           <h2 data-reveal><span className="chip text-2xl">Why now</span></h2>
-          <p data-reveal className="mt-8 max-w-2xl text-2xl font-semibold leading-snug tracking-tight text-body sm:text-3xl">
-            Three things changed at once.
-          </p>
           <div className="mt-12 grid gap-8 lg:grid-cols-3 lg:gap-12">
             {[
               [
@@ -126,13 +154,11 @@ export default function AboutPage() {
                 key={title}
                 data-reveal
                 style={{ "--d": `${i * 110}ms` } as CSSProperties}
-                className="border-t-2 border-gold pt-5"
+                className="border-t border-body/20 pt-5"
               >
-                <span className="text-4xl font-extrabold tracking-tight text-gold sm:text-5xl">
-                  {`0${i + 1}`}
-                </span>
-                <h3 className="mt-3 text-xl font-bold text-body">{title}</h3>
-                <p className="mt-3 text-base leading-relaxed text-muted">{desc}</p>
+                <span className="font-mono text-sm text-gold-deep">{`[0${i + 1}]`}</span>
+                <h3 className="mt-3 text-xl text-body">{title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted">{desc}</p>
               </div>
             ))}
           </div>
@@ -142,27 +168,26 @@ export default function AboutPage() {
       {/* Our values */}
       <section>
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <p data-reveal className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
+          <p data-reveal className="mb-3 font-mono text-xs uppercase tracking-[0.15em] text-gold-deep">
             Core values
           </p>
           <h2 data-reveal className="chip text-2xl sm:text-3xl">
             The principles that govern everything we do
           </h2>
-          <dl className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Asymmetric full grid: three tiles across the top, two wider ones
+              below, so no cell sits empty. Tiles slide in left to right. */}
+          <dl className="mt-12 grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-6">
             {VALUES.map(([title, text], i) => (
               <div
                 key={title}
-                data-reveal
-                style={{ "--d": `${(i % 3) * 100}ms` } as CSSProperties}
-                className="rounded-2xl bg-ink-raised p-8 shadow-sm"
+                data-reveal="left"
+                style={{ "--d": `${i * 100}ms` } as CSSProperties}
+                className={`group bg-white p-8 transition-colors hover:bg-[#fcfaf4] ${
+                  i < 3 ? "lg:col-span-2" : "lg:col-span-3"
+                } ${i === 4 ? "sm:col-span-2 lg:col-span-3" : ""}`}
               >
-                <span
-                  aria-hidden="true"
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#6f4c10] text-sm font-bold text-white"
-                >
-                  {`0${i + 1}`}
-                </span>
-                <dt className="mt-5 text-xl font-bold text-[#0a0a0a]">{title}</dt>
+                <span className="font-mono text-xs text-gold-deep">{`[0${i + 1}]`}</span>
+                <dt className="mt-6 text-xl font-bold text-[#0a0a0a]">{title}</dt>
                 <dd className="mt-3 text-sm leading-relaxed text-muted">{text}</dd>
               </div>
             ))}

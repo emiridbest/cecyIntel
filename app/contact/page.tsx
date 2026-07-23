@@ -16,8 +16,8 @@ export default function ContactPage() {
       >
         <p>
           If you need a dataset, hold data that belongs in this, or want to
-          discuss a pilot, write to us. A person reads every message, and we
-          reply within three working days.
+          discuss a pilot, write to us. Our team receives every message and we
+          will respond within three working days.
         </p>
       </PageHeader>
       <section>

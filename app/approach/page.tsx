@@ -14,7 +14,7 @@ const HORIZONS = [
     label: "Horizon one · Now",
     title: "Aggregate and analyse what already exists",
     body: [
-      "We ingest routine facility reporting (NHMIS/DHIS2), demographic and health survey waves, insurance claims, and disease registry records. Then we clean them: deduplication, facility and geography matching, diagnosis mapping, and documentation of every transformation.",
+      "We ingest routine facility reporting, demographic and health survey waves, insurance claims, and disease registry records. Then we clean them: deduplication, facility and geography matching, diagnosis mapping, and documentation of every transformation.",
       "The output is a catalogue of cleaned, versioned, joinable datasets, each with a data dictionary and a clear access tier. Public indicators are published openly. Research extracts are released through an application process. Sensitive linkages are analysed only inside our governed environment.",
     ],
     deliverables: [
@@ -65,7 +65,7 @@ export default function ApproachPage() {
         eyebrow="Three horizons, in order"
         image={{ src: "/researchProcess.jpg", alt: "A hand-drawn diagram of the research process" }}
       >
-        <p>
+        <p className="text-sm leading-relaxed text-muted">
           We sequence deliberately. Each horizon funds and de-risks the next.
         </p>
       </PageHeader>
@@ -74,30 +74,34 @@ export default function ApproachPage() {
         const flip = i % 2 === 1;
         return (
           <section key={h.title} className={i % 2 === 0 ? "light" : ""}>
-            <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-              <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className="mx-auto max-w-6xl px-6 py-20 sm:px-10 sm:py-24">
+              <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
                 {/* Text side */}
                 <div data-reveal={flip ? "right" : "left"} className={flip ? "lg:order-2" : ""}>
-                  <div className="flex items-baseline gap-4">
-                    <span className="text-5xl font-extrabold tracking-tight text-gold sm:text-6xl">
-                      {`0${i + 1}`}
-                    </span>
-                    <span className="text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">
-                      {h.label}
-                    </span>
-                  </div>
-                  <h2 className="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-body sm:text-4xl">
+                  <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold-deep">
+                    {`[0${i + 1}]`} {h.label}
+                  </p>
+                  <h2 className="mt-4 text-xl font-bold leading-snug tracking-tight text-body sm:text-2xl">
                     {h.title}
                   </h2>
-                  <p className="mt-5 text-lg leading-relaxed text-muted">{h.body[0]}</p>
 
-                  <ul className="mt-8 space-y-3">
+                  <p className="mt-6 text-sm font-semibold leading-relaxed text-body">
+                    {h.body[0].split(". ")[0]}.
+                  </p>
+                  <p className="mt-3 max-w-prose text-sm leading-relaxed text-muted">
+                    {h.body[0].split(". ").slice(1).join(". ")}
+                  </p>
+
+                  <p className="mt-10 font-mono text-xs uppercase tracking-[0.2em] text-gold-deep">
+                    What this delivers
+                  </p>
+                  <ul className="mt-5 space-y-4">
                     {h.deliverables.map((d, j) => (
                       <li
                         key={d}
                         data-reveal
-                        style={{ "--d": `${j * 90}ms` } as CSSProperties}
-                        className="flex items-start gap-3 text-base leading-snug text-body"
+                        style={{ "--d": `${j * 100}ms` } as CSSProperties}
+                        className="flex items-start gap-3 text-sm leading-snug text-body"
                       >
                         <span
                           aria-hidden="true"
@@ -129,12 +133,12 @@ export default function ApproachPage() {
       })}
 
       <section className="bg-[#f8e5b4] text-[#171310]">
-        <div className="mx-auto max-w-6xl px-5 py-20 text-center sm:px-8">
-          <h2 className="mx-auto max-w-2xl font-serif text-3xl leading-snug">
+        <div className="mx-auto max-w-6xl px-6 py-20 text-center sm:px-10 sm:py-24">
+          <h2 className="mx-auto max-w-2xl text-xl leading-snug sm:text-2xl">
             Horizon one is underway. If your organisation needs Nigerian health
             data, help us prioritise.
           </h2>
-          <div className="mt-10 flex justify-center gap-4">
+          <div className="mt-12 flex justify-center gap-6">
             <Link
               href="/survey"
               className="rounded-full bg-[#171310] px-6 py-3 text-sm font-medium text-[#f5d68a] transition-colors hover:bg-[#3a2c12]"

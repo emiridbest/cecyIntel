@@ -10,7 +10,7 @@ const STATS = [
   { value: 36, suffix: "", label: "States to be covered, plus the FCT" },
   { value: 500000, suffix: "+", label: "Subjects to be enrolled" },
   { value: 10, suffix: "+", label: "Targeted data sources connected" },
-  { value: 3, suffix: "", label: "Access tiers, from open to governed" },
+  { value: 3, suffix: "", label: "Access tiers, from open to premium" },
 ];
 
 const DURATION_MS = 1600;
@@ -57,7 +57,7 @@ export default function Stats({ variant = "light" }: { variant?: "light" | "dark
     <div ref={ref} className="grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
       {STATS.map((s) => (
         <div key={s.label} className="border-l-2 border-gold pl-5">
-          <p className={`text-4xl font-bold sm:text-5xl ${dark ? "text-white" : "text-[#171310]"}`}>
+          <p className={`text-4xl font-extrabold tracking-tight sm:text-5xl ${dark ? "text-white" : "text-[#171310]"}`}>
             {format(Math.round(s.value * progress))}
             {s.suffix}
           </p>

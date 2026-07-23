@@ -13,7 +13,7 @@ export default function Footer() {
             Cecy <span className="text-[#d4a03c]">Intelligence</span>
           </p>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-[#a8a8a8]">
-            Health-data infrastructure for Nigeria and Africa. We make the
+            Health-data infrastructure for Africa. We make the
             health data that already exists usable, responsibly and at scale.
           </p>
         </div>

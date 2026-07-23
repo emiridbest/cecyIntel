@@ -50,7 +50,7 @@ export default function ContactForm() {
   if (status === "success") {
     return (
       <div role="status" className="border border-gold-deep p-8">
-        <h2 className="font-serif text-2xl text-gold-light">Message sent.</h2>
+        <h2 className="text-2xl text-body">Message sent.</h2>
         <p className="mt-4 leading-relaxed text-muted">
           Thank you, {data.name.trim().split(" ")[0]}. We&rsquo;ve received your
           message and will reply to {data.email.trim()} within three working
